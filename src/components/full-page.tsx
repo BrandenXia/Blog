@@ -1,10 +1,12 @@
 "use client";
 
 import { forwardRef, HTMLAttributes } from "react";
-import { layout } from "@data/config";
 import cn from "@/lib/cn";
+import config from "@data/config";
 
-const headerHeight = layout.headerHeight;
+const {
+  layout: { headerHeight },
+} = config;
 
 const FullPage = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ children, className, style, ...props }, ref) => (

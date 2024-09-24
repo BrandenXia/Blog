@@ -17,7 +17,12 @@ type Avatar = {
     }
 );
 
+type Routes = "/" | "/blogs" | "/about";
+
+type HeaderLinks = Record<string, Routes>[];
+
 type Config = {
+  headerLinks: HeaderLinks;
   layout: Layout;
   avatar: Avatar;
   metadata: Metadata;

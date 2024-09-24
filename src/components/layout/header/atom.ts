@@ -1,7 +1,11 @@
 import { atom } from "jotai";
-import { layout } from "@data/config";
+import config from "@data/config";
 
-const scrollLimit = layout.headerHeight * 4;
+const {
+  layout: { headerHeight },
+} = config;
+
+const scrollLimit = headerHeight * 4;
 
 const scrollYAtom = atom<number>(0);
 

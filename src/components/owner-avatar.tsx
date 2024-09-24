@@ -1,8 +1,10 @@
 import { Config } from "@/config";
-import { avatar } from "@data/config";
+import config from "@data/config";
 import Image from "next/image";
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 import cn from "@/lib/cn";
+
+const { avatar } = config;
 
 const githubAvatarLink = "https://avatars.githubusercontent.com/u/";
 

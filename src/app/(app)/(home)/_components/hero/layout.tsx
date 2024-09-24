@@ -1,8 +1,10 @@
 import { JSXWrapper } from "@/lib/typeUtils";
 import FullPage from "@/components/full-page";
-import { layout } from "@data/config";
+import config from "@data/config";
 
-const headerHeight = layout.headerHeight;
+const {
+  layout: { headerHeight },
+} = config;
 
 const Layout: JSXWrapper = ({ children }) => {
   return (
