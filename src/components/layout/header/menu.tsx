@@ -12,7 +12,7 @@ const Menu = () => (
     <NavMenu.Root>
       <NavMenu.List className="flex items-center">
         <AnimatedBackground
-          className="rounded-lg bg-accent/30"
+          className="rounded-lg bg-accent/20"
           transition={{
             type: "spring",
             bounce: 0.2,

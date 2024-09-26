@@ -14,10 +14,10 @@ const SubMenu = ({ links }: { links: NamedLink[] }) => (
       <m.ul
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="absolute top-[calc(100%+1.15rem)] z-20 w-40 overflow-hidden rounded-lg bg-base-100 shadow"
+        className="absolute top-[calc(100%+1.15rem)] z-20 w-max overflow-hidden rounded-lg bg-base-100 drop-shadow"
       >
         <AnimatedBackground
-          className="bg-accent/30"
+          className="bg-accent/20"
           transition={{
             type: "spring",
             bounce: 0.2,
@@ -29,7 +29,7 @@ const SubMenu = ({ links }: { links: NamedLink[] }) => (
             <li
               key={index}
               data-id={index}
-              className="flex w-full justify-center px-3 py-2 hover:text-accent"
+              className="flex w-full justify-center px-5 py-2 hover:text-accent"
             >
               <Link link={link} />
             </li>
