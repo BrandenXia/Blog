@@ -3,7 +3,7 @@
 import { JSXWrapper } from "@/lib/typeUtils";
 import { useAtomValue } from "jotai";
 import { scrollProgressAtom } from "./atom";
-import { m, mix } from "framer-motion";
+import { mix, m } from "framer-motion";
 import { ComponentProps } from "react";
 
 type CSSProperties = ComponentProps<typeof m.div>["animate"];

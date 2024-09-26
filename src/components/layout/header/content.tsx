@@ -1,5 +1,6 @@
 import Layout from "./layout";
 import OwnerAvatar from "@/components/owner-avatar";
+import Links from "./menu";
 
 const Content = () => (
   <Layout
@@ -8,6 +9,7 @@ const Content = () => (
         <OwnerAvatar />
       </div>
     }
+    center={<Links />}
   />
 );
 

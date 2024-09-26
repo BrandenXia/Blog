@@ -1,7 +1,15 @@
 import { Config } from "@/config";
 
 const config: Config = {
-  headerLinks: [{ Home: "/" }, { Blogs: "/blogs" }, { About: "/about" }],
+  headerLinks: [
+    { text: "Home", href: "/" },
+    [
+      { text: "Posts", href: "/posts" },
+      { text: "Frontend", href: "/categories/frontend" },
+      { text: "Random Stuffs", href: "/categories/random-stuffs" },
+    ],
+    { text: "About", href: "/about" },
+  ],
   layout: {
     headerHeight: 72,
   },

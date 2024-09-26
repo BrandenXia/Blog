@@ -17,9 +17,8 @@ type Avatar = {
     }
 );
 
-type Routes = "/" | "/blogs" | "/about";
-
-type HeaderLinks = Record<string, Routes>[];
+type NamedLink = { text: string; href: string };
+type HeaderLinks = (NamedLink | NamedLink[])[];
 
 type Config = {
   headerLinks: HeaderLinks;
@@ -28,4 +27,4 @@ type Config = {
   metadata: Metadata;
 };
 
-export type { Config };
+export type { Config, Layout, Avatar, NamedLink, HeaderLinks };
