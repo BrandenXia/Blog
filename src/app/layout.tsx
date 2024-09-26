@@ -9,6 +9,7 @@ export const { metadata } = config;
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-inter",
 });
 
 const Layout: JSXWrapper = ({ children }) => (

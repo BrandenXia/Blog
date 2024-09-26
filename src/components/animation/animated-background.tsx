@@ -75,7 +75,12 @@ export default function AnimatedBackground({
             <m.div
               layoutId={`background-${uniqueId}`}
               className={cn("absolute inset-0", className)}
-              transition={transition}
+              transition={{
+                type: "spring",
+                bounce: 0.2,
+                duration: 0.3,
+                ...transition,
+              }}
               initial={{ opacity: defaultValue ? 1 : 0 }}
               animate={{
                 opacity: 1,

@@ -4,13 +4,12 @@ import daisyui from "daisyui";
 import { light } from "./themes";
 import { getIconCollections, iconsPlugin } from "@egoist/tailwindcss-icons";
 
-const config: TailWindConfig = {
+const config = {
   content: ["./src/**/*.{ts,tsx,mdx}", "./data/**/*.{ts,tsx,mdx}"],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        sans: ["var(--font-inter)"],
       },
     },
   },
@@ -19,6 +18,6 @@ const config: TailWindConfig = {
     logs: false,
     themes: [{ light }],
   } satisfies DaisyUIConfig,
-};
+} satisfies TailWindConfig;
 
 export default config;

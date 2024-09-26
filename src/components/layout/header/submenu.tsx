@@ -16,15 +16,7 @@ const SubMenu = ({ links }: { links: NamedLink[] }) => (
         animate={{ opacity: 1, y: 0 }}
         className="absolute top-[calc(100%+1.15rem)] z-20 w-max overflow-hidden rounded-lg bg-base-100 drop-shadow"
       >
-        <AnimatedBackground
-          className="bg-accent/20"
-          transition={{
-            type: "spring",
-            bounce: 0.2,
-            duration: 0.3,
-          }}
-          enableHover
-        >
+        <AnimatedBackground className="bg-accent/20" enableHover>
           {links.slice(1).map((link, index) => (
             <li
               key={index}
