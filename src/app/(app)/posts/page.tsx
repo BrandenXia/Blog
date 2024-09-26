@@ -7,7 +7,7 @@ const Page = async () => {
   const posts = await getPostsBy();
   return (
     <main className="mx-auto mt-8 max-w-screen-md">
-      <AnimatedBackground className="rounded-xl bg-accent/10" enableHover>
+      <AnimatedBackground className="bg-accent/10 md:rounded-xl" enableHover>
         {posts.map((post, index) => (
           <PostInfo post={post} key={index} />
         ))}
