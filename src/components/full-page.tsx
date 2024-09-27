@@ -1,7 +1,6 @@
 "use client";
 
 import { forwardRef, HTMLAttributes } from "react";
-import cn from "@/lib/cn";
 import config from "@data/config";
 
 const {
@@ -12,8 +11,8 @@ const FullPage = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ children, className, style, ...props }, ref) => (
     <div
       ref={ref}
-      style={{ ...style, height: `calc(100vh - ${headerHeight}px)` }}
-      className={cn("overflow-hidden", className)}
+      style={{ ...style, minHeight: `calc(100vh - ${headerHeight}px)` }}
+      className={className}
       {...props}
     >
       {children}

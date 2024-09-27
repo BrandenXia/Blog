@@ -3,7 +3,7 @@ import { JSXWrapper } from "@/lib/typeUtils";
 
 const Layout: JSXWrapper = ({ children }) => (
   <FullPage>
-    <div className="mx-auto max-w-screen-2xl">{children}</div>
+    <div className="mx-auto mt-8 max-w-screen-2xl">{children}</div>
   </FullPage>
 );
 

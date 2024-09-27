@@ -1,0 +1,15 @@
+.code[data-line-numbers] {
+  counter-reset: line;
+}
+
+.code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.code > [data-highlighted-line] {
+  backdrop-filter: brightness(2);
+}

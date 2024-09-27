@@ -1,9 +1,9 @@
-import { JSX, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
-type JSXWrapper = (
-  props: Readonly<{
+type JSXWrapper = FC<
+  Readonly<{
     children?: ReactNode;
-  }>,
-) => JSX.Element | null;
+  }>
+>;
 
 export type { JSXWrapper };

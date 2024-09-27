@@ -1,5 +1,6 @@
 import { cache } from "react";
 import { globby } from "globby";
+import { MDXContent } from "mdx/types";
 
 type Metadata = {
   title: string;
@@ -78,6 +79,13 @@ const getPostMetadata: (slug: string) => Promise<Metadata | null> = cache(
   },
 );
 
+const getPostContent: (slug: string) => Promise<MDXContent> = cache(
+  async (slug) => {
+    const file = await getFileFromSlug(slug);
+    return (await import(`@data/posts/${file}`)).default;
+  },
+);
+
 const getAllCategories: () => Promise<string[]> = cache(async () => {
   const posts = await getAllPosts();
   return Array.from(new Set(posts.map(({ metadata }) => metadata.category)));
@@ -88,5 +96,11 @@ const getAllTags: () => Promise<string[]> = cache(async () => {
   return Array.from(new Set(posts.flatMap(({ metadata }) => metadata.tags)));
 });
 
-export { getPostsBy, getPostMetadata, getAllCategories, getAllTags };
+export {
+  getPostsBy,
+  getPostMetadata,
+  getPostContent,
+  getAllCategories,
+  getAllTags,
+};
 export type { Metadata, Post };

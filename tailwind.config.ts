@@ -11,12 +11,19 @@ const config = {
       fontFamily: {
         sans: ["var(--font-inter)"],
       },
+      listStyleType: {
+        "upper-alpha": "upper-alpha",
+        "lower-alpha": "lower-alpha",
+        "upper-roman": "upper-roman",
+        "lower-roman": "lower-roman",
+      },
     },
   },
   plugins: [daisyui, iconsPlugin({ collections: getIconCollections(["ph"]) })],
   daisyui: {
-    logs: false,
+    base: false,
     themes: [{ light }],
+    logs: false,
   } satisfies DaisyUIConfig,
 } satisfies TailWindConfig;
 
