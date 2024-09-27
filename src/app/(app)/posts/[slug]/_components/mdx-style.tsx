@@ -1,7 +1,7 @@
 import { MDXComponents } from "mdx/types";
 import { ComponentProps, FC } from "react";
 import Link from "next/link";
-import style from "./MDXStyle.module.css";
+import style from "./mdx-style.module.css";
 import IntrinsicElements = React.JSX.IntrinsicElements;
 
 type ElementFC<T extends keyof IntrinsicElements> = FC<ComponentProps<T>>;
@@ -83,7 +83,7 @@ const li: ElementFC<"li"> = ({ children, ...props }) => (
   </li>
 );
 
-const MDXStyle = {
+const MdxStyle = {
   h1,
   h2,
   h3,
@@ -98,4 +98,4 @@ const MDXStyle = {
   li,
 } as MDXComponents;
 
-export default MDXStyle;
+export default MdxStyle;

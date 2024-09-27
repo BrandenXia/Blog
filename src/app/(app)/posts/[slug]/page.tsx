@@ -3,7 +3,7 @@ import { getPostContent, getPostMetadata } from "@/lib/posts";
 import PostDate from "@/components/ui/post/post-date";
 import PostCategory from "@/components/ui/post/post-category";
 import PostTags from "@/components/ui/post/post-tags";
-import MDXStyle from "./_components/MDXStyle";
+import MdxStyle from "./_components/mdx-style";
 
 const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
   const metadata = await getPostMetadata(slug);
@@ -22,7 +22,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
           </div>
         </div>
         <article className="space-y-4 text-[1.05rem]">
-          <Content components={MDXStyle} />
+          <Content components={MdxStyle} />
         </article>
       </main>
       <aside className="lg:w-52"></aside>
