@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Frag from "@/components/Frag";
+import Frag from "@/components/frag";
 
 const PostCategory = ({
   category,
