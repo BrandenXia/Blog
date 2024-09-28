@@ -44,7 +44,7 @@ const a: ElementFC<"a"> = ({ children, href, ...props }) => (
 const blockquote: ElementFC<"blockquote"> = ({ children, ...props }) => (
   <blockquote
     {...props}
-    className="border-l-4 border-primary bg-primary/20 px-5 py-4 font-serif font-medium"
+    className="border-l-4 border-primary bg-primary/20 px-5 py-4 font-medium text-primary-content"
   >
     {children}
   </blockquote>

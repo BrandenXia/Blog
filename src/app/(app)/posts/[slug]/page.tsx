@@ -4,6 +4,7 @@ import PostDate from "@/components/ui/post/post-date";
 import PostCategory from "@/components/ui/post/post-category";
 import PostTags from "@/components/ui/post/post-tags";
 import MdxStyle from "./_components/mdx-style";
+import Toc from "@/app/(app)/posts/[slug]/_components/toc";
 
 const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
   const metadata = await getPostMetadata(slug);
@@ -12,7 +13,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
 
   return (
     <>
-      <main className="flex max-w-screen-lg shrink grow flex-col space-y-8 px-6">
+      <main className="flex max-w-screen-lg grow flex-col space-y-8 px-12 mx-auto">
         <div className="flex flex-col space-y-4">
           <h1 className="text-center text-4xl font-bold">{metadata.title}</h1>
           <div className="flex justify-center space-x-2.5 text-neutral">
@@ -21,11 +22,16 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
             <PostTags tags={metadata.tags} withLink />
           </div>
         </div>
-        <article className="space-y-4 text-[1.05rem]">
+        <article
+          className="space-y-4 text-pretty text-[1.05rem]"
+          id="post-content"
+        >
           <Content components={MdxStyle} />
         </article>
       </main>
-      <aside className="lg:w-52"></aside>
+      <aside className="w-52 sticky top-48 h-max hidden xl:block">
+        <Toc htmlFor="post-content" />
+      </aside>
     </>
   );
 };
