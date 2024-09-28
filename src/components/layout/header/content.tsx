@@ -6,7 +6,7 @@ const Content = () => (
   <Layout
     left={
       <div className="w-12">
-        <OwnerAvatar />
+        <OwnerAvatar sizes="100%" />
       </div>
     }
     center={<Links />}
