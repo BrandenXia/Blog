@@ -9,7 +9,7 @@ const posts = path.resolve(root, "data", "posts");
 const template = path.resolve(root, "templates", "template.mdx");
 
 const checkCancel = (value: unknown | symbol): value is symbol => {
-  if (isCancel(value)) {
+  if (isCancel(value) || value === undefined) {
     log.error("Operation cancelled");
     return true;
   }
@@ -32,6 +32,13 @@ const main = async () => {
   });
   if (checkCancel(title)) process.exit(0);
 
+  const category = await text({ message: "Post category?" });
+  if (checkCancel(category)) process.exit(0);
+
+  const raw_tags = await text({ message: "Post tags? (comma separated)" });
+  if (checkCancel(raw_tags)) process.exit(0);
+  const tags = raw_tags.split(",").map((tag) => tag.trim());
+
   const date = getDateStr();
   log.info(`Date: ${date}`);
 
@@ -52,7 +59,9 @@ const main = async () => {
   const templateContent = readFileSync(template).toString();
   const content = templateContent
     .replaceAll("{{title}}", title)
-    .replaceAll("{{date}}", date);
+    .replaceAll("{{date}}", date)
+    .replaceAll("{{category}}", category)
+    .replaceAll('"{{tags}}"', JSON.stringify(tags));
 
   if (existsSync(filepath)) {
     log.error(`Post already exists: ${filepath}`);
