@@ -17,12 +17,12 @@ const Menu = () => (
               {Array.isArray(link) ? (
                 <SubMenu links={link} />
               ) : (
-                <button className="relative flex justify-center" role="link">
+                <span className="relative flex justify-center">
                   <Link
                     link={link}
                     className="px-5 py-2 text-[1.075rem] xl:px-8 2xl:px-10"
                   />
-                </button>
+                </span>
               )}
             </NavMenu.Item>
           ))}
