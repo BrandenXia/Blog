@@ -1,15 +1,23 @@
 import { notFound } from "next/navigation";
-import { getPostContent, getPostMetadata } from "@/lib/posts";
+import { getFileFromSlug, getPostMetadata, getPostsBy } from "@/lib/posts";
 import PostDate from "@/components/ui/post/post-date";
 import PostCategory from "@/components/ui/post/post-category";
 import PostTags from "@/components/ui/post/post-tags";
 import MdxStyle from "./_components/mdx-style";
-import Toc from "@/app/(app)/posts/[slug]/_components/toc";
+import Toc from "./_components/toc";
+import { MDXContent } from "mdx/types";
+import dynamic from "next/dynamic";
+
+const generateStaticParams = async () => {
+  const posts = await getPostsBy();
+  return posts.map(({ slug }) => ({ params: { slug } }));
+};
 
 const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
   const metadata = await getPostMetadata(slug);
   if (!metadata) return notFound();
-  const Content = await getPostContent(slug);
+  const file = await getFileFromSlug(slug);
+  const Content = dynamic(() => import(`@data/posts/${file}`)) as MDXContent;
 
   return (
     <>
@@ -37,3 +45,4 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
 };
 
 export default Page;
+export { generateStaticParams };
