@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "new-post": "scripts/new-post.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
@@ -28,6 +29,7 @@
     "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
+    "@clack/prompts": "^0.7.0",
     "@egoist/tailwindcss-icons": "^1.8.1",
     "@iconify-json/ph": "^1.2.0",
     "@types/node": "^20.16.10",
