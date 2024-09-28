@@ -68,7 +68,7 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
   useMotionValueEvent(scrollY, "change", handleScroll);
 
   return (
-    <div className="text-lg space-y-2">
+    <div className="space-y-2 text-lg">
       <h2 className="font-medium">Table of Contents</h2>
       <hr />
       <ul className="text-neutral/75">
@@ -76,7 +76,7 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
           <li key={item.id} style={{ marginLeft: `${item.level}rem` }}>
             <a
               className={cn(
-                "hover:text-base-content transition-colors duration-200",
+                "transition-colors duration-200 hover:text-base-content",
                 active === item.id && "text-accent",
               )}
               href={`#${item.id}`}

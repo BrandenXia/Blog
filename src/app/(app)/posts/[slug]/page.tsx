@@ -13,7 +13,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
 
   return (
     <>
-      <main className="flex max-w-screen-lg grow flex-col space-y-8 px-12 mx-auto">
+      <main className="mx-auto flex max-w-screen-lg grow flex-col space-y-8 px-12">
         <div className="flex flex-col space-y-4">
           <h1 className="text-center text-4xl font-bold">{metadata.title}</h1>
           <div className="flex justify-center space-x-2.5 text-neutral">
@@ -29,7 +29,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
           <Content components={MdxStyle} />
         </article>
       </main>
-      <aside className="w-52 sticky top-48 h-max hidden xl:block">
+      <aside className="sticky top-48 hidden h-max w-52 xl:block">
         <Toc htmlFor="post-content" />
       </aside>
     </>
