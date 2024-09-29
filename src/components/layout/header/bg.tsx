@@ -1,6 +1,6 @@
 "use client";
 
-import { JSXWrapper } from "@/lib/typeUtils";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 import { useAtomValue } from "jotai";
 import { scrollProgressAtom } from "./atom";
 import { mix, m } from "framer-motion";

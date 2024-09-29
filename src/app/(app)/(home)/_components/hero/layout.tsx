@@ -1,4 +1,4 @@
-import { JSXWrapper } from "@/lib/typeUtils";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 import FullPage from "@/components/full-page";
 import config from "@data/config";
 

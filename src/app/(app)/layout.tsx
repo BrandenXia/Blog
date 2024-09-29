@@ -1,4 +1,4 @@
-import { JSXWrapper } from "@/lib/typeUtils";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 import Header from "@/components/layout/header";
 
 const Layout: JSXWrapper = ({ children }) => (

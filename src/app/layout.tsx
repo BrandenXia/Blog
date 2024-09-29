@@ -1,5 +1,5 @@
 import "./globals.css";
-import { JSXWrapper } from "@/lib/typeUtils";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 import Providers from "@/components/providers";
 import { Inter } from "next/font/google";
 import config from "@data/config";

@@ -1,18 +1,6 @@
 import { cache } from "react";
 import { globby } from "globby";
-
-type Metadata = {
-  title: string;
-  date: string;
-  category: string;
-  tags: string[];
-  summary: string;
-};
-
-type Post = {
-  slug: string;
-  metadata: Metadata;
-};
+import { Metadata, Post } from "@/types/post";
 
 const getFiles: () => Promise<string[]> = cache(
   async () => await globby(["*.mdx", "*/index.mdx"], { cwd: "./data/posts" }),
@@ -95,4 +83,3 @@ export {
   getAllCategories,
   getAllTags,
 };
-export type { Metadata, Post };

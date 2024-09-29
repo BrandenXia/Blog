@@ -1,5 +1,5 @@
 import FullPage from "@/components/full-page";
-import { JSXWrapper } from "@/lib/typeUtils";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 
 const Layout: JSXWrapper = ({ children }) => (
   <FullPage>

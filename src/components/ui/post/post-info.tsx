@@ -1,8 +1,8 @@
-import { Post } from "@/lib/posts";
 import Link from "next/link";
 import PostDate from "./post-date";
 import PostCategory from "./post-category";
 import PostTags from "./post-tags";
+import type { Post } from "@/types/post";
 
 const PostInfo = ({ post }: { post: Post }) => (
   <Link href={`/posts/${post.slug}`} data-id={post.slug} className="w-full">

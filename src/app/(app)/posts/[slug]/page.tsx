@@ -9,16 +9,14 @@ import { MDXContent } from "mdx/types";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
 
+type Params = { slug: string };
+
 const generateStaticParams = async () => {
   const posts = await getPostsBy();
   return posts.map(({ slug }) => ({ params: { slug } }));
 };
 
-const generateMetadata = async ({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) => {
+const generateMetadata = async ({ params: { slug } }: { params: Params }) => {
   const metadata = await getPostMetadata(slug);
   if (!metadata) return {};
 
@@ -28,7 +26,7 @@ const generateMetadata = async ({
   } satisfies Metadata;
 };
 
-const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
+const Page = async ({ params: { slug } }: { params: Params }) => {
   const metadata = await getPostMetadata(slug);
   if (!metadata) return notFound();
   const file = await getFileFromSlug(slug);

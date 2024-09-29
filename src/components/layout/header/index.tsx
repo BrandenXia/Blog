@@ -1,4 +1,4 @@
-import { JSXWrapper } from "@/lib/typeUtils";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 import DataUpdater from "./data-updater";
 import Bg from "./bg";
 import Content from "@/components/layout/header/content";

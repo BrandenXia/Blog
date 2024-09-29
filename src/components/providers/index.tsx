@@ -1,6 +1,6 @@
 "use client";
 
-import { JSXWrapper } from "@/lib/typeUtils";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 import { Provider as JotaiProvider } from "jotai";
 import { LazyMotion } from "framer-motion";
 
