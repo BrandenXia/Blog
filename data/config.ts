@@ -5,8 +5,8 @@ const config: Config = {
     { text: "Home", href: "/" },
     [
       { text: "Posts", href: "/posts" },
-      { text: "Frontend", href: "/categories/frontend" },
-      { text: "Random Stuffs", href: "/categories/random-stuffs" },
+      { text: "Frontend", href: "/posts?category=frontend" },
+      { text: "Random Stuffs", href: "/posts?category=random-stuffs" },
     ],
     { text: "About", href: "/about" },
   ],

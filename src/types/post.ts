@@ -6,9 +6,13 @@ type Metadata = {
   summary: string;
 };
 
+type Filter = {
+  [key in keyof Metadata]?: Metadata[key];
+};
+
 type Post = {
   slug: string;
   metadata: Metadata;
 };
 
-export type { Metadata, Post };
+export type { Metadata, Filter, Post };

@@ -1,6 +1,8 @@
+"use server";
+
 import { cache } from "react";
 import { globby } from "globby";
-import { Metadata, Post } from "@/types/post";
+import { Filter, Metadata, Post } from "@/types/post";
 
 const getFiles: () => Promise<string[]> = cache(
   async () => await globby(["*.mdx", "*/index.mdx"], { cwd: "./data/posts" }),
@@ -30,9 +32,23 @@ const getAllPosts: () => Promise<Post[]> = cache(async () => {
   );
 });
 
+const checkFilter = (metadata: Metadata, filter: Filter) => {
+  for (const key in filter) {
+    const objKey = key as keyof Metadata; // Type assertion
+
+    if (typeof filter[objKey] === "string") {
+      if (metadata[objKey] !== filter[objKey]) return false;
+    } else if (Array.isArray(filter[objKey])) {
+      if (!filter[objKey].every((tag) => metadata[objKey].includes(tag)))
+        return false;
+    }
+  }
+  return true;
+};
+
 type GetPostsByOptions = {
   sort?: [keyof Metadata, "asc" | "desc"];
-  filter?: (metadata: Metadata) => boolean;
+  filter?: Filter;
   limit?: number;
   page?: number;
 };
@@ -40,12 +56,12 @@ type GetPostsByOptions = {
 const getPostsBy = cache(
   async ({
     sort = ["date", "desc"],
-    filter = () => true,
-    limit = 30,
+    filter = {},
+    limit = 20,
     page = 1,
   }: GetPostsByOptions = {}) =>
     (await getAllPosts())
-      .filter(({ metadata }) => filter(metadata))
+      .filter(({ metadata }) => checkFilter(metadata, filter))
       .sort((a, b) => {
         const [key, order] = sort;
         return order === "asc"

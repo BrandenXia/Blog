@@ -1,21 +1,21 @@
 import { getPostsBy } from "@/lib/posts";
-import PostInfo from "@/components/ui/post/post-info";
-import AnimatedBackground from "@/components/animation/animated-background";
+import PostList from "./_components/post-list";
+
+type SearchParams = {
+  category?: string;
+  tags?: string[];
+};
 
 const metadata = {
   title: "Posts",
 };
 
-const Page = async () => {
-  // TODO: Add pagination
-  const posts = await getPostsBy();
+const Page = async ({ searchParams }: { searchParams: SearchParams }) => {
+  const posts = await getPostsBy({ filter: searchParams, page: 1 });
+
   return (
     <main className="mx-auto max-w-screen-md">
-      <AnimatedBackground className="bg-accent/10 md:rounded-xl" enableHover>
-        {posts.map((post, index) => (
-          <PostInfo post={post} key={index} />
-        ))}
-      </AnimatedBackground>
+      <PostList initialPosts={posts} filter={searchParams} />
     </main>
   );
 };

@@ -82,12 +82,8 @@ export default function AnimatedBackground({
                 ...transition,
               }}
               initial={{ opacity: defaultValue ? 1 : 0 }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-              }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             />
           )}
         </AnimatePresence>
