@@ -39,7 +39,7 @@ const checkFilter = (metadata: Metadata, filter: Filter) => {
     if (typeof filter[objKey] === "string") {
       if (metadata[objKey] !== filter[objKey]) return false;
     } else if (Array.isArray(filter[objKey])) {
-      if (!filter[objKey].every((tag) => metadata[objKey].includes(tag)))
+      if (filter[objKey].some((value) => !metadata[objKey].includes(value)))
         return false;
     }
   }
