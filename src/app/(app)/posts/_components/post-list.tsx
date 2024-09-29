@@ -67,7 +67,7 @@ const PostList = ({
       </AnimatePresence>
       {hasMore && (
         <button
-          className="w-full mt-2 py-3 text-sm text-neutral transition-colors duration-300 hover:bg-neutral/5 md:rounded-xl"
+          className="mt-2 w-full py-3 text-sm text-neutral transition-colors duration-300 hover:bg-neutral/5 md:rounded-xl"
           onClick={loadMore}
         >
           Load more
