@@ -68,8 +68,8 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
   useMotionValueEvent(scrollY, "change", handleScroll);
 
   return (
-    <div className="space-y-2 text-lg">
-      <h2 className="font-medium">Table of Contents</h2>
+    <div className="space-y-2">
+      <h2 className="text-lg font-medium">Table of Contents</h2>
       <hr />
       <ul className="text-neutral/75">
         {toc.map((item) => (
