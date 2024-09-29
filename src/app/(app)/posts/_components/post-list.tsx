@@ -1,7 +1,7 @@
 "use client";
 
 import { Filter, Post } from "@/types/post";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getPostsBy } from "@/lib/posts";
 import PostInfo from "@/components/ui/post/post-info";
 import { AnimatePresence, m } from "framer-motion";
@@ -34,6 +34,12 @@ const PostList = ({
     setPosts((prev) => [...prev, ...newPosts]);
     setPage((prev) => prev + 1);
   }, [filter, hasMore, page]);
+
+  useEffect(() => {
+    setPosts(initialPosts);
+    setPage(2);
+    setHasMore(initialPosts.length === limit);
+  }, [filter, initialPosts]);
 
   return (
     <>
