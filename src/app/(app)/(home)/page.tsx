@@ -1,6 +1,6 @@
 import Hero from "./_components/hero";
 
-export const metadata = {
+const metadata = {
   title: "Home",
 };
 
@@ -12,3 +12,4 @@ const Page = () => (
 );
 
 export default Page;
+export { metadata };

@@ -7,10 +7,25 @@ import MdxStyle from "./_components/mdx-style";
 import Toc from "./_components/toc";
 import { MDXContent } from "mdx/types";
 import dynamic from "next/dynamic";
+import { Metadata } from "next";
 
 const generateStaticParams = async () => {
   const posts = await getPostsBy();
   return posts.map(({ slug }) => ({ params: { slug } }));
+};
+
+const generateMetadata = async ({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) => {
+  const metadata = await getPostMetadata(slug);
+  if (!metadata) return {};
+
+  return {
+    title: metadata.title,
+    description: metadata.summary,
+  } satisfies Metadata;
 };
 
 const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
@@ -45,4 +60,4 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
 };
 
 export default Page;
-export { generateStaticParams };
+export { generateStaticParams, generateMetadata };

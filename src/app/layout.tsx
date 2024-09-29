@@ -4,7 +4,7 @@ import Providers from "@/components/providers";
 import { Inter } from "next/font/google";
 import config from "@data/config";
 
-export const { metadata } = config;
+const { metadata } = config;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,3 +21,4 @@ const Layout: JSXWrapper = ({ children }) => (
 );
 
 export default Layout;
+export { metadata };

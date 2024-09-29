@@ -2,6 +2,10 @@ import { getPostsBy } from "@/lib/posts";
 import PostInfo from "@/components/ui/post/post-info";
 import AnimatedBackground from "@/components/animation/animated-background";
 
+const metadata = {
+  title: "Posts",
+};
+
 const Page = async () => {
   // TODO: Add pagination
   const posts = await getPostsBy();
@@ -17,3 +21,4 @@ const Page = async () => {
 };
 
 export default Page;
+export { metadata };
