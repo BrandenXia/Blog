@@ -10,6 +10,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-inter)"],
+        mono: ["var(--font-jetbrains-mono)"],
       },
       listStyleType: {
         "upper-alpha": "upper-alpha",
