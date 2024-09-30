@@ -11,7 +11,7 @@ type CSSProperties = ComponentProps<typeof m.div>["animate"];
 const Bg: JSXWrapper = ({ children }) => {
   const scrollProgress = useAtomValue(scrollProgressAtom);
 
-  const bgMix = mix(0, 0.5, scrollProgress);
+  const bgMix = mix(0, 0.8, scrollProgress);
   const borderOpacityMix = mix(0, 0.8, scrollProgress);
 
   return (
