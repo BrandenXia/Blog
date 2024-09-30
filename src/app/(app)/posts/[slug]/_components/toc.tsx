@@ -77,7 +77,7 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
             <a
               className={cn(
                 "transition-colors duration-200 hover:text-base-content",
-                active === item.id && "text-accent",
+                active === item.id && "text-primary",
               )}
               href={`#${item.id}`}
             >

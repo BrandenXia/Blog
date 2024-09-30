@@ -16,12 +16,12 @@ const SubMenu = ({ links }: { links: NamedLink[] }) => (
         animate={{ opacity: 1, y: 0 }}
         className="absolute top-[calc(100%+1.15rem)] z-20 w-max overflow-hidden rounded-lg bg-base-100 drop-shadow"
       >
-        <AnimatedBackground className="bg-accent/20" enableHover>
+        <AnimatedBackground className="bg-primary/20" enableHover>
           {links.slice(1).map((link, index) => (
             <li
               key={index}
               data-id={index}
-              className="flex w-full justify-center px-5 py-2 hover:text-accent"
+              className="flex w-full justify-center px-5 py-2 hover:text-primary"
             >
               <Link link={link} />
             </li>

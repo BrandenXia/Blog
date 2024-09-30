@@ -11,7 +11,7 @@ const Menu = () => (
   <AnimatePresence>
     <NavMenu.Root>
       <NavMenu.List className="flex items-center">
-        <AnimatedBackground className="rounded-lg bg-accent/20" enableHover>
+        <AnimatedBackground className="rounded-lg bg-primary/20" enableHover>
           {headerLinks.map((link, index) => (
             <NavMenu.Item key={index} data-id={index}>
               {Array.isArray(link) ? (

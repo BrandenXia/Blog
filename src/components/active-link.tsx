@@ -14,7 +14,7 @@ const ActiveLink = forwardRef<
   return (
     <Link
       ref={ref}
-      className={cn(href === pathname && "text-accent", className)}
+      className={cn(href === pathname && "text-primary", className)}
       href={href}
       {...props}
     />

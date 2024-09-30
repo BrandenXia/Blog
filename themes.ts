@@ -22,9 +22,9 @@ type DaisyUITheme = {
 };
 
 const light: DaisyUITheme = {
-  primary: "#60a5fa",
+  primary: "#7782e6",
   secondary: "#fdba74",
-  accent: "#818cf8",
+  accent: "#60a5fa",
   neutral: "#474747",
   "base-100": "#ffffff",
   "base-200": "#f9fafb",

@@ -11,7 +11,7 @@ const PostCategory = ({
   const Wrapper = withLink ? Link : Frag;
 
   return (
-    <Wrapper href={`/categories/${category}`}>
+    <Wrapper href={`/posts?category=${category}`}>
       <span className="font-mono text-primary underline before:content-['@']">
         {category}
       </span>

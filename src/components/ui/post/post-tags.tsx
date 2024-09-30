@@ -11,7 +11,7 @@ const PostTags = ({
   const Wrapper = withLink ? Link : Frag;
 
   return tags.map((tag, index) => (
-    <Wrapper href={`/tags/${tag}`} key={index}>
+    <Wrapper href={`/posts?tags=${tag}`} key={index}>
       <span className="font-mono italic text-secondary underline before:content-['#']">
         {tag}
       </span>
