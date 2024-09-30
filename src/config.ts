@@ -1,5 +1,3 @@
-import { Metadata } from "next";
-
 type Layout = {
   headerHeight: number;
 };
@@ -20,7 +18,16 @@ type Avatar = {
 type NamedLink = { text: string; href: string };
 type HeaderLinks = (NamedLink | NamedLink[])[];
 
+type Metadata = {
+  title: {
+    template: string;
+    default: string;
+  };
+  description: string;
+};
+
 type Config = {
+  siteUrl: string;
   headerLinks: HeaderLinks;
   layout: Layout;
   avatar: Avatar;

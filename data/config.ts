@@ -1,6 +1,7 @@
 import { Config } from "@/config";
 
 const config: Config = {
+  siteUrl: "https://xia-x.org",
   headerLinks: [
     { text: "Home", href: "/" },
     [
