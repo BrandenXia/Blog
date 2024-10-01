@@ -8,6 +8,6 @@ body {
 
 @layer base {
   :root {
-    @apply text-base-content bg-base-100;
+    @apply bg-base-100 text-base-content;
   }
 }

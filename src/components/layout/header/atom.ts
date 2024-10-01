@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+
 import config from "@data/config";
 
 const {

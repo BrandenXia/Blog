@@ -1,13 +1,15 @@
+import { MDXContent } from "mdx/types";
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
-import { getFileFromSlug, getPostMetadata, getPostsBy } from "@/lib/posts";
-import PostDate from "@/components/ui/post/post-date";
+
 import PostCategory from "@/components/ui/post/post-category";
+import PostDate from "@/components/ui/post/post-date";
 import PostTags from "@/components/ui/post/post-tags";
+import { getFileFromSlug, getPostMetadata, getPostsBy } from "@/lib/posts";
+
 import MdxStyle from "./_components/mdx-style";
 import Toc from "./_components/toc";
-import { MDXContent } from "mdx/types";
-import dynamic from "next/dynamic";
-import { Metadata } from "next";
 
 type Params = { slug: string };
 
@@ -43,10 +45,7 @@ const Page = async ({ params: { slug } }: { params: Params }) => {
             <PostTags tags={metadata.tags} withLink />
           </div>
         </div>
-        <article
-          className="space-y-4 text-pretty text-[1.05rem]"
-          id="post-content"
-        >
+        <article className="space-y-4 text-pretty text-[1.05rem]" id="post-content">
           <Content components={MdxStyle} />
         </article>
       </main>

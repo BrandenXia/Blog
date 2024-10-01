@@ -1,6 +1,7 @@
 import RSS from "rss";
-import config from "@data/config";
+
 import { getPostsBy } from "@/lib/posts";
+import config from "@data/config";
 
 const { siteUrl } = config;
 

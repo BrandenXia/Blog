@@ -1,15 +1,14 @@
-import type { NamedLink } from "@/config";
-import * as NavMenu from "@radix-ui/react-navigation-menu";
-import Link from "./link";
 import * as m from "framer-motion/m";
+import type { NamedLink } from "@/config";
+
 import AnimatedBackground from "@/components/animation/animated-background";
+import * as NavMenu from "@radix-ui/react-navigation-menu";
+
+import Link from "./link";
 
 const SubMenu = ({ links }: { links: NamedLink[] }) => (
   <NavMenu.Trigger className="relative flex justify-center">
-    <Link
-      link={links[0]}
-      className="px-5 py-2 text-[1.075rem] xl:px-8 2xl:px-10"
-    />
+    <Link link={links[0]} className="px-5 py-2 text-[1.075rem] xl:px-8 2xl:px-10" />
     <NavMenu.Content asChild>
       <m.ul
         initial={{ opacity: 0, y: 10 }}

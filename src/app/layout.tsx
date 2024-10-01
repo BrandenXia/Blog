@@ -1,7 +1,9 @@
 import "./globals.css";
-import { JSXWrapper } from "@/types/jsx-wrapper";
-import Providers from "@/components/providers";
+
 import { Inter, JetBrains_Mono } from "next/font/google";
+
+import Providers from "@/components/providers";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 import config from "@data/config";
 
 const { metadata } = config;
@@ -20,9 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 const Layout: JSXWrapper = ({ children }) => (
   <html lang="en">
-    <body
-      className={`${inter.variable} ${jetbrainsMono.variable} font-sans  antialiased`}
-    >
+    <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
       <Providers>{children}</Providers>
     </body>
   </html>

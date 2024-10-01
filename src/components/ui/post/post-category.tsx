@@ -1,20 +1,13 @@
 import Link from "next/link";
+
 import Frag from "@/components/frag";
 
-const PostCategory = ({
-  category,
-  withLink = false,
-}: {
-  category: string;
-  withLink?: boolean;
-}) => {
+const PostCategory = ({ category, withLink = false }: { category: string; withLink?: boolean }) => {
   const Wrapper = withLink ? Link : Frag;
 
   return (
     <Wrapper href={`/posts?category=${category}`}>
-      <span className="font-mono text-primary underline before:content-['@']">
-        {category}
-      </span>
+      <span className="font-mono text-primary underline before:content-['@']">{category}</span>
     </Wrapper>
   );
 };

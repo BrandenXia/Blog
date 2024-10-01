@@ -1,5 +1,6 @@
 import OwnerAvatar from "@/components/owner-avatar";
 import Intro from "@data/intro";
+
 import Layout from "./layout";
 
 const Hero = () => (

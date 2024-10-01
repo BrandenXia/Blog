@@ -1,11 +1,11 @@
 "use client";
 
-import { JSXWrapper } from "@/types/jsx-wrapper";
-import { Provider as JotaiProvider } from "jotai";
 import { LazyMotion } from "framer-motion";
+import { Provider as JotaiProvider } from "jotai";
 
-const loadMotionFeatures = () =>
-  import("./motion-features").then((res) => res.default);
+import { JSXWrapper } from "@/types/jsx-wrapper";
+
+const loadMotionFeatures = () => import("./motion-features").then((res) => res.default);
 
 const Providers: JSXWrapper = ({ children }) => (
   <JotaiProvider>

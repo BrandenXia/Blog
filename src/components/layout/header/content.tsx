@@ -1,5 +1,6 @@
-import Layout from "./layout";
 import OwnerAvatar from "@/components/owner-avatar";
+
+import Layout from "./layout";
 import Links from "./menu";
 
 const Content = () => (

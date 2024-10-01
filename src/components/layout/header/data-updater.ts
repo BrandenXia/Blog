@@ -1,8 +1,9 @@
 "use client";
 
-import { useSetAtom } from "jotai";
-import { scrollYAtom } from "./atom";
 import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useSetAtom } from "jotai";
+
+import { scrollYAtom } from "./atom";
 
 const DataUpdater = () => {
   const { scrollY } = useScroll();

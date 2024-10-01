@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+
 import cn from "@/lib/cn";
 
 type TocItem = {
@@ -29,9 +30,7 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
     const article = document.getElementById(htmlFor);
     if (!article) return;
 
-    const headings = Array.from(
-      article.querySelectorAll("h1, h2, h3, h4, h5, h6"),
-    )
+    const headings = Array.from(article.querySelectorAll("h1, h2, h3, h4, h5, h6"))
       .map((heading, index) => ({
         id: heading.id,
         title: heading.textContent || "",
@@ -54,8 +53,7 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
       }
 
       toc.push({
-        level:
-          h.headingLevel === prevH.headingLevel ? last.level : last.level + 1,
+        level: h.headingLevel === prevH.headingLevel ? last.level : last.level + 1,
         ...h,
       });
     }

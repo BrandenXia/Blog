@@ -1,4 +1,5 @@
 import { getAllCategories, getPostsBy } from "@/lib/posts";
+
 import PostList from "./_components/post-list";
 
 type SearchParams = {
@@ -21,10 +22,7 @@ const generateStaticParams = async () => {
 const Page = async ({ searchParams }: { searchParams: SearchParams }) => {
   const filter = {
     category: searchParams.category,
-    tags:
-      typeof searchParams.tags === "string"
-        ? [searchParams.tags]
-        : searchParams.tags,
+    tags: typeof searchParams.tags === "string" ? [searchParams.tags] : searchParams.tags,
   };
 
   const posts = await getPostsBy({ filter, page: 1 });

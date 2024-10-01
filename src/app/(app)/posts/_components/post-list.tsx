@@ -1,20 +1,15 @@
 "use client";
 
-import { Filter, Post } from "@/types/post";
-import { useCallback, useEffect, useState } from "react";
-import { getPostsBy } from "@/lib/posts";
-import PostInfo from "@/components/ui/post/post-info";
 import { AnimatePresence, m } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+
+import PostInfo from "@/components/ui/post/post-info";
+import { getPostsBy } from "@/lib/posts";
+import { Filter, Post } from "@/types/post";
 
 const limit = 20;
 
-const PostList = ({
-  initialPosts,
-  filter,
-}: {
-  initialPosts: Post[];
-  filter: Filter;
-}) => {
+const PostList = ({ initialPosts, filter }: { initialPosts: Post[]; filter: Filter }) => {
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [page, setPage] = useState(2);
   const [hasMore, setHasMore] = useState(initialPosts.length === limit);

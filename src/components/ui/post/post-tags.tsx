@@ -1,20 +1,13 @@
 import Link from "next/link";
+
 import Frag from "@/components/frag";
 
-const PostTags = ({
-  tags,
-  withLink = false,
-}: {
-  tags: string[];
-  withLink?: boolean;
-}) => {
+const PostTags = ({ tags, withLink = false }: { tags: string[]; withLink?: boolean }) => {
   const Wrapper = withLink ? Link : Frag;
 
   return tags.map((tag, index) => (
     <Wrapper href={`/posts?tags=${tag}`} key={index}>
-      <span className="font-mono italic text-secondary underline before:content-['#']">
-        {tag}
-      </span>
+      <span className="font-mono italic text-secondary underline before:content-['#']">{tag}</span>
     </Wrapper>
   ));
 };

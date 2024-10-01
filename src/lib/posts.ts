@@ -1,7 +1,8 @@
 "use server";
 
-import { cache } from "react";
 import { globby } from "globby";
+import { cache } from "react";
+
 import { Filter, Metadata, Post } from "@/types/post";
 
 const getFiles: () => Promise<string[]> = cache(
@@ -13,12 +14,10 @@ const getMetadata: (file: string) => Promise<Metadata> = cache(async (file) => {
   return metadata as Metadata;
 });
 
-const getFileFromSlug: (slug: string) => Promise<string | undefined> = cache(
-  async (slug) => {
-    const files = await getFiles();
-    return files.find((file) => file.startsWith(slug));
-  },
-);
+const getFileFromSlug: (slug: string) => Promise<string | undefined> = cache(async (slug) => {
+  const files = await getFiles();
+  return files.find((file) => file.startsWith(slug));
+});
 
 const getAllPosts: () => Promise<Post[]> = cache(async () => {
   const files = await getFiles();
@@ -39,8 +38,7 @@ const checkFilter = (metadata: Metadata, filter: Filter) => {
     if (typeof filter[objKey] === "string") {
       if (metadata[objKey] !== filter[objKey]) return false;
     } else if (Array.isArray(filter[objKey])) {
-      if (filter[objKey].some((value) => !metadata[objKey].includes(value)))
-        return false;
+      if (filter[objKey].some((value) => !metadata[objKey].includes(value))) return false;
     }
   }
   return true;
@@ -54,12 +52,7 @@ type GetPostsByOptions = {
 };
 
 const getPostsBy = cache(
-  async ({
-    sort = ["date", "desc"],
-    filter = {},
-    limit = 20,
-    page = 1,
-  }: GetPostsByOptions = {}) =>
+  async ({ sort = ["date", "desc"], filter = {}, limit = 20, page = 1 }: GetPostsByOptions = {}) =>
     (await getAllPosts())
       .filter(({ metadata }) => checkFilter(metadata, filter))
       .sort((a, b) => {
@@ -75,12 +68,10 @@ const getPostsBy = cache(
       .slice((page - 1) * limit, page * limit),
 );
 
-const getPostMetadata: (slug: string) => Promise<Metadata | null> = cache(
-  async (slug) => {
-    const file = await getFileFromSlug(slug);
-    return file ? await getMetadata(file) : null;
-  },
-);
+const getPostMetadata: (slug: string) => Promise<Metadata | null> = cache(async (slug) => {
+  const file = await getFileFromSlug(slug);
+  return file ? await getMetadata(file) : null;
+});
 
 const getAllCategories: () => Promise<string[]> = cache(async () => {
   const posts = await getAllPosts();
@@ -92,10 +83,4 @@ const getAllTags: () => Promise<string[]> = cache(async () => {
   return Array.from(new Set(posts.flatMap(({ metadata }) => metadata.tags)));
 });
 
-export {
-  getFileFromSlug,
-  getPostsBy,
-  getPostMetadata,
-  getAllCategories,
-  getAllTags,
-};
+export { getFileFromSlug, getPostsBy, getPostMetadata, getAllCategories, getAllTags };

@@ -1,6 +1,7 @@
 import type { NamedLink } from "@/config";
-import * as NavMenu from "@radix-ui/react-navigation-menu";
+
 import ActiveLink from "@/components/active-link";
+import * as NavMenu from "@radix-ui/react-navigation-menu";
 
 const Link = ({ link, className }: { link: NamedLink; className?: string }) => (
   <NavMenu.Link asChild className={className}>

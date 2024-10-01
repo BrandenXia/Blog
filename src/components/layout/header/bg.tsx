@@ -1,10 +1,12 @@
 "use client";
 
-import { JSXWrapper } from "@/types/jsx-wrapper";
+import { m, mix } from "framer-motion";
 import { useAtomValue } from "jotai";
-import { scrollProgressAtom } from "./atom";
-import { mix, m } from "framer-motion";
 import { ComponentProps } from "react";
+
+import { JSXWrapper } from "@/types/jsx-wrapper";
+
+import { scrollProgressAtom } from "./atom";
 
 type CSSProperties = ComponentProps<typeof m.div>["animate"];
 

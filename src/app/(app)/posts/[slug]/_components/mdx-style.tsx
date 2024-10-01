@@ -1,7 +1,9 @@
 import { MDXComponents } from "mdx/types";
-import { ComponentProps, FC } from "react";
 import Link from "next/link";
+import { ComponentProps, FC } from "react";
+
 import style from "./mdx-style.module.css";
+
 import IntrinsicElements = React.JSX.IntrinsicElements;
 
 type ElementFC<T extends keyof IntrinsicElements> = FC<ComponentProps<T>>;

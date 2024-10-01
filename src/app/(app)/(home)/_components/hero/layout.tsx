@@ -1,5 +1,5 @@
-import { JSXWrapper } from "@/types/jsx-wrapper";
 import FullPage from "@/components/full-page";
+import { JSXWrapper } from "@/types/jsx-wrapper";
 import config from "@data/config";
 
 const {
