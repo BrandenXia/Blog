@@ -4,9 +4,8 @@ import path from "node:path";
 
 import { confirm, intro, isCancel, log, outro, text } from "@clack/prompts";
 
-import { root } from "./utils";
+import { posts, root } from "./utils";
 
-const posts = path.resolve(root, "data", "posts");
 const template = path.resolve(root, "templates", "template.mdx");
 
 const checkCancel = (value: unknown | symbol): value is symbol => {

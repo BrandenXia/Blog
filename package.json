@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "new-post": "scripts/new-post.ts"
+    "new-post": "scripts/new-post.ts",
+    "generate-summary": "scripts/generate-summary.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
@@ -42,6 +43,7 @@
     "eslint-config-next": "14.2.13",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
+    "openai": "^4.67.1",
     "postcss": "^8.4.47",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
