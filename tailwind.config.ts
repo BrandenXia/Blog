@@ -1,10 +1,11 @@
 import daisyui from "daisyui";
-import type { Config as DaisyUIConfig } from "daisyui";
-import type { Config as TailWindConfig } from "tailwindcss";
 
 import { getIconCollections, iconsPlugin } from "@egoist/tailwindcss-icons";
 
 import { light } from "./themes";
+
+import type { Config as DaisyUIConfig } from "daisyui";
+import type { Config as TailWindConfig } from "tailwindcss";
 
 const config = {
   content: ["./src/**/*.{ts,tsx,mdx}", "./data/**/*.{ts,tsx,mdx}"],

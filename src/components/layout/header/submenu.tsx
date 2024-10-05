@@ -1,10 +1,11 @@
 import * as m from "framer-motion/m";
-import type { NamedLink } from "@/config";
 
 import AnimatedBackground from "@/components/animation/animated-background";
 import * as NavMenu from "@radix-ui/react-navigation-menu";
 
 import Link from "./link";
+
+import type { NamedLink } from "@/config";
 
 const SubMenu = ({ links }: { links: NamedLink[] }) => (
   <NavMenu.Trigger className="relative flex justify-center">
