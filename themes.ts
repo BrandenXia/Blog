@@ -36,6 +36,16 @@ const light: DaisyUITheme = {
 };
 
 // TODO: Design dark theme
-const dark = "TODO";
+const dark: DaisyUITheme = {
+  primary: "#40b99d",
+  secondary: "#d04742",
+  accent: "#2778dc",
+  neutral: "#DDDEDF",
+  "base-100": "#22262E",
+  info: "#084093",
+  success: "#1a9336",
+  warning: "#bb962a",
+  error: "#be3131",
+};
 
 export { light, dark };

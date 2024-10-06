@@ -2,7 +2,7 @@ import daisyui from "daisyui";
 
 import { getIconCollections, iconsPlugin } from "@egoist/tailwindcss-icons";
 
-import { light } from "./themes";
+import { dark, light } from "./themes";
 
 import type { Config as DaisyUIConfig } from "daisyui";
 import type { Config as TailWindConfig } from "tailwindcss";
@@ -26,7 +26,7 @@ const config = {
   plugins: [daisyui, iconsPlugin({ collections: getIconCollections(["ph"]) })],
   daisyui: {
     base: false,
-    themes: [{ light }],
+    themes: [{ light, dark }],
     logs: false,
   } satisfies DaisyUIConfig,
 } satisfies TailWindConfig;
