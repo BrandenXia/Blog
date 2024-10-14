@@ -45,6 +45,10 @@ const Page = async ({ params: { slug } }: { params: Params }) => {
             <PostTags tags={metadata.tags} withLink />
           </div>
         </div>
+        <div className="space-y-1 rounded-2xl border px-5 py-3.5">
+          <h2 className="font-semibold">Summary</h2>
+          <p className="text-sm text-neutral/80">{metadata.summary}</p>
+        </div>
         <article className="space-y-4 text-pretty text-[1.05rem]" id="post-content">
           <Content components={MdxStyle} />
         </article>
