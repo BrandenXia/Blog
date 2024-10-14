@@ -69,7 +69,7 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
     <div className="space-y-2">
       <h2 className="text-lg font-medium">Table of Contents</h2>
       <hr />
-      <ul className="text-neutral/75">
+      <ul className="text-sm text-neutral/75">
         {toc.map((item) => (
           <li key={item.id} style={{ marginLeft: `${item.level}rem` }}>
             <a
