@@ -1,12 +1,14 @@
 "use server";
 
+import path from "node:path";
 import { globby } from "globby";
 import { cache } from "react";
 
 import { Filter, Metadata, Post } from "@/types/post";
 
 const getFiles: () => Promise<string[]> = cache(
-  async () => await globby(["*.mdx", "*/index.mdx"], { cwd: "./data/posts" }),
+  async () =>
+    await globby(["*.mdx", "*/index.mdx"], { cwd: path.join(process.cwd(), "data/posts") }),
 );
 
 const getMetadata: (file: string) => Promise<Metadata> = cache(async (file) => {
