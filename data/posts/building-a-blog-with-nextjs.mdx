@@ -1,0 +1,57 @@
+export const metadata = {
+  title: "Building a Blog with Next.js",
+  date: "2024-10-14",
+  category: "frontend",
+  tags: ["next.js","react","markdown"],
+  summary: "The blog post details the creation of a blog using Next.js, TailwindCSS, and MDX, highlighting the choices due to their respective strengths in routing, styling, and content handling. Key features implemented include dark mode (albeit with noted need for enhancement in future), syntax highlighting using Shiki and rehype-pretty-code, and a dynamic table of contents. Additional functionalities include RSS feed, SEO optimization, generating a sitemap, and improved navigation through category/tag-based post search, pagination, and infinite scroll. The design utilizes DaisyUI's color system, incorporating a range of semantic colors to define various elements consistently throughout the blog.",
+};
+
+After about one month of development, I finally finished building my blog.
+
+For this project, I chose to use **[Next.js](https://nextjs.org)**, **[TailwindCSS](https://tailwindcss.com)**, and **[MDX](https://mdxjs.com)**.
+Next.js is mostly for routing, SSR, and SSG.
+Tailwind allows me to style my components quickly and efficiently.
+MDX is great for adding custom content that is hard to achieve with Markdown.
+
+## Design
+
+I followed DaisyUI's semantic color system for my blog's design, with the following colors:
+
+- <span className="badge badge-xs badge-primary mr-1" /> Primary
+- <span className="badge badge-xs badge-secondary mr-1" /> Secondary
+- <span className="badge badge-xs badge-accent mr-1" /> Accent
+- <span className="badge badge-xs badge-neutral mr-1" /> Neutral
+- <span className="badge badge-xs badge-info mr-1" /> Info
+- <span className="badge badge-xs badge-success mr-1" /> Success
+- <span className="badge badge-xs badge-warning mr-1" /> Warning
+- <span className="badge badge-xs badge-error mr-1" /> Error
+
+## Features
+
+### Dark mode
+
+Implemented through media queries and TailwindCSS.
+
+However, the dark mode color scheme is not as good as the light mode, so I still need to improve it in the future.
+
+### Syntax highlighting
+
+Implemented with [Shiki](https://shiki.style) and [rehype-pretty-code](https://rehype-pretty.pages.dev)
+
+```python showLineNumbers {2}
+def some_function():
+    print("This is a test function")
+```
+
+### Table of contents
+
+Implemented by finding all the headings in the post and generating a list of links.
+([source code](https://github.com/BrandenXia/blog/blob/main/src/app/(app)/posts/%5Bslug%5D/_components/toc.tsx))
+
+### Other features
+
+- RSS feed
+- SEO
+- Sitemap
+- Posts search by categories and tags
+- Pagination and infinite scroll
