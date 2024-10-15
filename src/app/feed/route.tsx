@@ -13,7 +13,7 @@ const GET = async () => {
     description: config.metadata.description,
     site_url: siteUrl,
     feed_url: `${siteUrl}/feed.xml`,
-    image_url: `${siteUrl}/favicon.ico`,
+    image_url: `${siteUrl}/icon`,
     pubDate: new Date(),
     copyright: `All rights reserved ${new Date().getFullYear()}, ${config.avatar.alt}`,
   });
