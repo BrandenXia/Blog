@@ -1,23 +1,11 @@
 import Image from "next/image";
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 
-import { Config } from "@/config";
+import { getAvatarLink } from "@/lib/avatar";
 import cn from "@/lib/cn";
 import config from "@data/config";
 
 const { avatar } = config;
-
-const githubAvatarLink = "https://avatars.githubusercontent.com/u/";
-
-const getAvatarLink = (avatar: Config["avatar"]) => {
-  switch (avatar.source) {
-    case "local":
-      return avatar.src;
-    case "github":
-      return `${githubAvatarLink}${avatar.userId}`;
-  }
-};
-
 const link = getAvatarLink(avatar);
 
 const OwnerAvatar = forwardRef<
