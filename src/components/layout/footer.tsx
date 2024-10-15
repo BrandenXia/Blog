@@ -12,6 +12,7 @@ const Footer = () => (
         <span>@2023-{new Date().getFullYear()} BrandenXia</span>
         <HoverLink href="/feed">RSS</HoverLink>
         <HoverLink href="/sitemap.xml">Sitemap</HoverLink>
+        <HoverLink href="https://github.com/BrandenXia/blog">Source Code</HoverLink>
       </p>
     </div>
   </footer>
