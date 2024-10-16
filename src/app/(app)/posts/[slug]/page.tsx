@@ -39,7 +39,7 @@ const Page = async ({ params: { slug } }: { params: Params }) => {
       <main className="mx-auto flex max-w-screen-lg grow flex-col space-y-8 px-12">
         <div className="flex flex-col space-y-4">
           <h1 className="text-center text-4xl font-bold">{metadata.title}</h1>
-          <div className="flex justify-center space-x-2.5 text-neutral">
+          <div className="flex flex-wrap justify-center space-x-2.5 text-neutral">
             <PostDate date={metadata.date} />
             <PostCategory category={metadata.category} withLink />
             <PostTags tags={metadata.tags} withLink />
