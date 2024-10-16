@@ -1,25 +1,28 @@
 import { MetadataRoute } from "next";
 
 import { getPostsBy } from "@/lib/posts";
+import config from "@data/config";
+
+const { siteUrl } = config;
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const posts = await getPostsBy({ limit: "all" });
 
   return [
     {
-      url: "/",
+      url: `${siteUrl}/`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: "/posts",
+      url: `${siteUrl}/posts`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     ...posts.map((post) => ({
-      url: `/posts/${post.slug}`,
+      url: `${siteUrl}/posts/${post.slug}`,
       lastModified: post.metadata.date,
       changeFrequency: "weekly" as const,
       priority: 0.7,
