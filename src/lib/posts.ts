@@ -49,7 +49,7 @@ const checkFilter = (metadata: Metadata, filter: Filter) => {
 type GetPostsByOptions = {
   sort?: [keyof Metadata, "asc" | "desc"];
   filter?: Filter;
-  limit?: number;
+  limit?: number | "all";
   page?: number;
 };
 
@@ -67,7 +67,7 @@ const getPostsBy = cache(
             ? 1
             : -1;
       })
-      .slice((page - 1) * limit, page * limit),
+      .slice(limit === "all" ? 0 : (page - 1) * limit, limit === "all" ? undefined : page * limit),
 );
 
 const getPostMetadata: (slug: string) => Promise<Metadata | null> = cache(async (slug) => {
