@@ -8,7 +8,7 @@ const manifest = (): MetadataRoute.Manifest => ({
   description: config.metadata.description,
   start_url: "/",
   display: "standalone",
-  icons: [{ src: "/icon", sizes: "any", type: "image/png" }],
+  icons: [{ src: "/icon", sizes: "64x64", type: "image/png" }],
 });
 
 export default manifest;
