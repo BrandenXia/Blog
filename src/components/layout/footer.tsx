@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 
 const HoverLink = (props: { children: ReactNode; href: string }) => (
-  <Link className="hover:text-primary hover:underline" {...props} />
+  <Link prefetch={false} className="hover:text-primary hover:underline" {...props} />
 );
 
 const Footer = () => (
