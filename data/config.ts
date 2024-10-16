@@ -1,6 +1,7 @@
 import { Config } from "@/config";
 
 const config: Config = {
+  githubUsername: "BrandenXia",
   siteUrl: "https://xia-x.org",
   headerLinks: [
     { text: "Home", href: "/" },

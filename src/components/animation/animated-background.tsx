@@ -14,14 +14,14 @@ type AnimatedBackgroundProps = {
   enableHover?: boolean;
 };
 
-export default function AnimatedBackground({
+const AnimatedBackground = ({
   children,
   defaultValue,
   onValueChange,
   className,
   transition,
   enableHover = false,
-}: AnimatedBackgroundProps) {
+}: AnimatedBackgroundProps) => {
   const [activeId, setActiveId] = useState<string | null>(null);
   const uniqueId = useId();
 
@@ -83,4 +83,6 @@ export default function AnimatedBackground({
       </>,
     );
   });
-}
+};
+
+export default AnimatedBackground;

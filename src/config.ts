@@ -27,6 +27,7 @@ type Metadata = {
 };
 
 type Config = {
+  githubUsername: string;
   siteUrl: string;
   headerLinks: HeaderLinks;
   layout: Layout;
