@@ -14,7 +14,7 @@ import Toc from "./_components/toc";
 type Params = { slug: string };
 
 const generateStaticParams = async () => {
-  const posts = await getPostsBy();
+  const posts = await getPostsBy({ limit: "all" });
   return posts.map(({ slug }) => ({ params: { slug } }));
 };
 

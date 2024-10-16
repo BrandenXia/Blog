@@ -3,8 +3,8 @@ import Link from "next/link";
 import { getPostsBy } from "@/lib/posts";
 
 const Timeline = async () => {
-  const _posts = await getPostsBy();
-  const posts = _posts.slice(0, 4).reverse();
+  const _posts = await getPostsBy({ limit: 4 });
+  const posts = _posts.reverse();
 
   return (
     <ul className="timeline">

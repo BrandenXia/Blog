@@ -6,7 +6,7 @@ import config from "@data/config";
 const { siteUrl } = config;
 
 const GET = async () => {
-  const posts = await getPostsBy();
+  const posts = await getPostsBy({ limit: "all" });
 
   const rss = new RSS({
     title: config.metadata.title.default,
