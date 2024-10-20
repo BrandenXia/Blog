@@ -38,8 +38,14 @@ const p: ElementLike<"p"> = ({ children, ...props }) => (
 );
 
 const a: ElementLike<"a"> = ({ children, href, ...props }) => (
-  <a {...props} href={href} className="text-primary underline">
+  <a
+    {...props}
+    href={href}
+    className="text-primary underline"
+    target={href?.includes("http") ? "_blank" : "_self"}
+  >
     {children}
+    {href?.includes("http") && <span className="i-ph-arrow-up-right size-4 align-middle" />}
   </a>
 );
 
