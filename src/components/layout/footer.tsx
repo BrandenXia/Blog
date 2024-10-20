@@ -9,7 +9,7 @@ const Footer = () => (
   <footer className="mt-8 flex justify-center bg-base-300 py-8">
     <div className="max-w-screen-lg grow">
       <p className="divide-x divide-base-content/40 text-sm *:px-3">
-        <span>@2023-{new Date().getFullYear()} BrandenXia</span>
+        <span>@{new Date().getFullYear()} BrandenXia</span>
         <HoverLink href="/feed">RSS</HoverLink>
         <HoverLink href="/sitemap.xml">Sitemap</HoverLink>
         <HoverLink href="https://github.com/BrandenXia/blog">Source Code</HoverLink>
