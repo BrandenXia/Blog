@@ -3,12 +3,12 @@ import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 
+import MdxStyle from "@/components/ui/mdx";
 import PostCategory from "@/components/ui/post/post-category";
 import PostDate from "@/components/ui/post/post-date";
 import PostTags from "@/components/ui/post/post-tags";
 import { getFileFromSlug, getPostMetadata, getPostsBy } from "@/lib/posts";
 
-import MdxStyle from "./_components/mdx-style";
 import Toc from "./_components/toc";
 
 type Params = { slug: string };
