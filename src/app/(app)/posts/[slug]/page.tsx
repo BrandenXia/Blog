@@ -53,9 +53,9 @@ const Page = async ({ params: { slug } }: { params: Params }) => {
           <Content components={MdxStyle} />
         </article>
       </main>
-      <div className="relative">
+      <div className="relative hidden xl:block">
         <div className="h-28" />
-        <aside className="sticky top-32 hidden h-max w-52 xl:block">
+        <aside className="sticky top-32 h-max w-52">
           <Toc htmlFor="post-content" />
         </aside>
       </div>
