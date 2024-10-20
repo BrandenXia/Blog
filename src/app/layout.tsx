@@ -1,9 +1,10 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 
 import Providers from "@/components/providers";
-import { JSXWrapper } from "@/types/jsx-wrapper";
 import config from "@data/config";
 import { Analytics } from "@vercel/analytics/next";
+
+import type { JSXWrapper } from "@/types/utils";
 
 import "./globals.css";
 

@@ -1,11 +1,13 @@
 "use client";
 
-import { AnimatePresence, m, MotionConfig, Transition, Variant } from "framer-motion";
+import { AnimatePresence, m, MotionConfig } from "framer-motion";
 import React, { useCallback, useContext, useEffect, useId, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import useClickOutside from "@/hooks/useClickOutside";
 import cn from "@/lib/cn";
+
+import type { Transition, Variant } from "framer-motion";
 
 interface DialogContextType {
   isOpen: boolean;

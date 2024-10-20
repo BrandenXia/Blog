@@ -3,7 +3,7 @@
 import { LazyMotion } from "framer-motion";
 import { Provider as JotaiProvider } from "jotai";
 
-import { JSXWrapper } from "@/types/jsx-wrapper";
+import type { JSXWrapper } from "@/types/utils";
 
 const loadMotionFeatures = () => import("./motion-features").then((res) => res.default);
 

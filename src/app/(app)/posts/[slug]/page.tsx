@@ -1,5 +1,3 @@
-import { MDXContent } from "mdx/types";
-import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 
@@ -10,6 +8,9 @@ import PostTags from "@/components/ui/post/post-tags";
 import { getFileFromSlug, getPostMetadata, getPostsBy } from "@/lib/posts";
 
 import Toc from "./_components/toc";
+
+import type { MDXContent } from "mdx/types";
+import type { Metadata } from "next";
 
 type Params = { slug: string };
 

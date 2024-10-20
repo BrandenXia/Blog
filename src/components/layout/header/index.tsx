@@ -1,9 +1,10 @@
 import Content from "@/components/layout/header/content";
-import { JSXWrapper } from "@/types/jsx-wrapper";
 import config from "@data/config";
 
 import Bg from "./bg";
 import DataUpdater from "./data-updater";
+
+import type { JSXWrapper } from "@/types/utils";
 
 const {
   layout: { headerHeight },

@@ -1,8 +1,10 @@
 "use client";
 
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef } from "react";
 
 import config from "@data/config";
+
+import type { HTMLAttributes } from "react";
 
 const {
   layout: { headerHeight },

@@ -1,4 +1,4 @@
-import { JSXWrapper } from "@/types/jsx-wrapper";
+import type { JSXWrapper } from "@/types/utils";
 
 import "katex/dist/katex.min.css";
 

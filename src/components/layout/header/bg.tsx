@@ -2,11 +2,11 @@
 
 import { m, mix } from "framer-motion";
 import { useAtomValue } from "jotai";
-import { ComponentProps } from "react";
-
-import { JSXWrapper } from "@/types/jsx-wrapper";
 
 import { scrollProgressAtom } from "./atom";
+
+import type { JSXWrapper } from "@/types/utils";
+import type { ComponentProps } from "react";
 
 type CSSProperties = ComponentProps<typeof m.div>["animate"];
 

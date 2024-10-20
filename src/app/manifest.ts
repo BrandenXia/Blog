@@ -1,6 +1,6 @@
-import { MetadataRoute } from "next";
-
 import config from "@data/config";
+
+import type { MetadataRoute } from "next";
 
 const manifest = (): MetadataRoute.Manifest => ({
   name: config.metadata.title.default,

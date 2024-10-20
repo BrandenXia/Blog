@@ -5,7 +5,8 @@ import { useCallback, useEffect, useState } from "react";
 
 import PostInfo from "@/components/ui/post/post-info";
 import { getPostsBy } from "@/lib/posts";
-import { Filter, Post } from "@/types/post";
+
+import type { Filter, Post } from "@/types/post";
 
 const limit = 20;
 

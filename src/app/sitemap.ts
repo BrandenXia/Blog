@@ -1,7 +1,7 @@
-import { MetadataRoute } from "next";
-
 import { getPostsBy } from "@/lib/posts";
 import config from "@data/config";
+
+import type { MetadataRoute } from "next";
 
 const { siteUrl } = config;
 

@@ -1,6 +1,7 @@
 import FullPage from "@/components/full-page";
-import { JSXWrapper } from "@/types/jsx-wrapper";
 import config from "@data/config";
+
+import type { JSXWrapper } from "@/types/utils";
 
 const {
   layout: { headerHeight },

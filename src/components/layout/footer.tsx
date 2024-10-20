@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+
+import type { ReactNode } from "react";
 
 const HoverLink = (props: { children: ReactNode; href: string }) => (
   <Link prefetch={false} className="hover:text-primary hover:underline" {...props} />

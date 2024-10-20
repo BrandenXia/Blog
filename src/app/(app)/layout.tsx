@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
-import { JSXWrapper } from "@/types/jsx-wrapper";
+
+import type { JSXWrapper } from "@/types/utils";
 
 const Layout: JSXWrapper = ({ children }) => (
   <>

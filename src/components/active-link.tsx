@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { forwardRef } from "react";
 
 import cn from "@/lib/cn";
+
+import type { ComponentPropsWithoutRef } from "react";
 
 const ActiveLink = forwardRef<HTMLAnchorElement, ComponentPropsWithoutRef<typeof Link>>(
   ({ className, href, ...props }, ref) => {

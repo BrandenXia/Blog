@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { getAvatarLink } from "@/lib/avatar";
 import cn from "@/lib/cn";
 import config from "@data/config";
+
+import type { ComponentPropsWithoutRef } from "react";
 
 const { avatar } = config;
 const link = getAvatarLink(avatar);

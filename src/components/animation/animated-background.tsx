@@ -1,9 +1,12 @@
 "use client";
 
-import { AnimatePresence, m, Transition } from "framer-motion";
-import { Children, cloneElement, ReactElement, useEffect, useId, useState } from "react";
+import { AnimatePresence, m } from "framer-motion";
+import { Children, cloneElement, useEffect, useId, useState } from "react";
 
 import cn from "@/lib/cn";
+
+import type { Transition } from "framer-motion";
+import type { ReactElement } from "react";
 
 type AnimatedBackgroundProps = {
   children: ReactElement<{ "data-id": string }>[] | ReactElement<{ "data-id": string }>;

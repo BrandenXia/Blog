@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 
-import { ElementLike } from "@/types/utils";
+import type { ElementLike } from "@/types/utils";
 
 const Pre: ElementLike<"pre"> = ({ children, ...props }) => {
   const ref = useRef<HTMLPreElement>(null);

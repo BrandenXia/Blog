@@ -1,11 +1,12 @@
-import { MDXComponents } from "mdx/types";
 import Link from "next/link";
 
 import DialogImg from "@/components/ui/dialog-img";
-import { ElementLike } from "@/types/utils";
 
 import { pre } from "./client";
 import style from "./mdx-style.module.css";
+
+import type { ElementLike } from "@/types/utils";
+import type { MDXComponents } from "mdx/types";
 
 const headingStyle =
   "relative before:absolute before:-left-8 before:opacity-30 hover:before:content-['#'] pt-5";

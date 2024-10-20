@@ -1,5 +1,3 @@
-import { ComponentProps } from "react";
-
 import {
   Dialog,
   DialogClose,
@@ -8,6 +6,8 @@ import {
   DialogImage,
   DialogTrigger,
 } from "@/components/animation/dialog";
+
+import type { ComponentProps } from "react";
 
 const DialogImg = ({ src, alt, className, style }: ComponentProps<"img">) => (
   <Dialog
