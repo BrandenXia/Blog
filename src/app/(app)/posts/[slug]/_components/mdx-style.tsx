@@ -2,6 +2,8 @@ import { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import { ComponentProps, FC } from "react";
 
+import DialogImg from "@/components/ui/dialog-img";
+
 import style from "./mdx-style.module.css";
 
 import IntrinsicElements = React.JSX.IntrinsicElements;
@@ -92,7 +94,7 @@ const img: ElementFC<"img"> = ({ src, alt: metas, ...props }) => {
   return (
     <span className="block space-y-4 py-8">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img {...props} src={src} alt={alt} className="mx-auto w-4/5" />
+      <DialogImg {...props} src={src} alt={alt} className="mx-auto w-4/5" />
       {caption && <span className="block text-center text-sm text-neutral/75">{caption}</span>}
     </span>
   );
