@@ -13,7 +13,7 @@ const GET = async () => {
 
   const rss = new RSS({
     title: config.metadata.title.default,
-    description: "feedId:71201767557218304+userId:61208281719806976",
+    description: config.metadata.description,
     site_url: siteUrl,
     feed_url: `${siteUrl}/feed.xml`,
     image_url: `${siteUrl}/icon`,
