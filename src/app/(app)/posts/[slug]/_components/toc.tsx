@@ -1,6 +1,6 @@
 "use client";
 
-import { useMotionValueEvent, useScroll } from "framer-motion";
+import { m, useMotionValueEvent, useScroll } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
 import cn from "@/lib/cn";
@@ -67,19 +67,21 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
 
   return (
     <div className="space-y-2">
-      <h2 className="text-lg font-medium">Table of Contents</h2>
-      <hr />
-      <ul className="text-sm text-neutral/75">
+      {toc.length > 0 && <h3 className="text-lg font-semibold">Table of Contents</h3>}
+      <ul className="pl-2 text-[15px] text-neutral/75">
         {toc.map((item) => (
-          <li key={item.id} style={{ marginLeft: `${item.level}rem` }}>
+          <li key={item.id} style={{ marginLeft: `${item.level / 1.5}rem` }}>
             <a
               className={cn(
-                "transition-colors duration-200 hover:text-base-content",
-                active === item.id && "text-primary",
+                "flex items-center transition-colors duration-200 hover:text-base-content",
+                active === item.id && "-ml-2 text-primary",
               )}
               href={`#${item.id}`}
             >
-              {item.title}
+              {active === item.id && (
+                <m.span layoutId="active-toc" className="mr-2 h-4 w-0.5 bg-primary" />
+              )}
+              <m.span layout>{item.title}</m.span>
             </a>
           </li>
         ))}
