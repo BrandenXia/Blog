@@ -31,7 +31,7 @@ const Recent = () => (
         </Activity>
         <Activity title="GitHub Contributions">
           <GitHubCalendar username={githubUsername} />
-        </Activity>{" "}
+        </Activity>
       </div>
     </InView>
   </div>
