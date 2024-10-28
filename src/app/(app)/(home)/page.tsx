@@ -6,10 +6,9 @@ const metadata = {
 };
 
 const Page = () => (
-  <main className="space-y-36">
+  <main className="mb-36 space-y-36">
     <Hero />
     <Recent />
-    <div className="h-[9999px]" />
   </main>
 );
 
