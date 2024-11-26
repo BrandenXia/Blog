@@ -1,6 +1,7 @@
 import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
 import createMDX from "@next/mdx";
@@ -15,7 +16,7 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [rehypeSlug, rehypeKatex, [rehypePrettyCode, { theme: "catppuccin-mocha" }]],
   },
 });
