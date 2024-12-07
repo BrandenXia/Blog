@@ -13,7 +13,7 @@ interface DialogContextType {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   uniqueId: string;
-  triggerRef: React.RefObject<HTMLDivElement>;
+  triggerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const DialogContext = React.createContext<DialogContextType | null>(null);
@@ -65,7 +65,7 @@ type DialogTriggerProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  triggerRef?: React.RefObject<HTMLDivElement>;
+  triggerRef?: React.RefObject<HTMLDivElement | null>;
 };
 
 function DialogTrigger({ children, className, style, triggerRef }: DialogTriggerProps) {
@@ -89,11 +89,13 @@ function DialogTrigger({ children, className, style, triggerRef }: DialogTrigger
     <m.span
       ref={triggerRef}
       layoutId={`dialog-${uniqueId}`}
-      className={cn("relative block cursor-pointer", className)}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
+      {...{
+        className: cn("relative block cursor-pointer", className),
+        onClick: handleClick,
+        onKeyDown: handleKeyDown,
+        role: "button",
+      }}
       style={style}
-      role="button"
       aria-haspopup="dialog"
       aria-expanded={isOpen}
       aria-controls={`dialog-content-${uniqueId}`}
@@ -171,9 +173,8 @@ function DialogContent({ children, className, style }: DialogContent) {
     <m.div
       ref={containerRef}
       layoutId={`dialog-${uniqueId}`}
-      className={cn("overflow-hidden", className)}
+      {...{ className: cn("overflow-hidden", className), role: "dialog" }}
       style={style}
-      role="dialog"
       aria-modal="true"
       aria-labelledby={`dialog-title-${uniqueId}`}
       aria-describedby={`dialog-description-${uniqueId}`}
@@ -206,7 +207,7 @@ function DialogContainer({ children }: DialogContainerProps) {
         <>
           <m.span
             key={`backdrop-${uniqueId}`}
-            className="fixed inset-0 z-50 block size-full bg-base-100/40 backdrop-blur-sm"
+            {...{ className: "fixed inset-0 z-50 block size-full bg-base-100/40 backdrop-blur-sm" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -229,12 +230,7 @@ function DialogTitle({ children, className, style }: DialogTitleProps) {
   const { uniqueId } = useDialog();
 
   return (
-    <m.div
-      layoutId={`dialog-title-container-${uniqueId}`}
-      className={className}
-      style={style}
-      layout
-    >
+    <m.div layoutId={`dialog-title-container-${uniqueId}`} {...{ className }} style={style} layout>
       {children}
     </m.div>
   );
@@ -250,7 +246,7 @@ function DialogSubtitle({ children, className, style }: DialogSubtitleProps) {
   const { uniqueId } = useDialog();
 
   return (
-    <m.div layoutId={`dialog-subtitle-container-${uniqueId}`} className={className} style={style}>
+    <m.div layoutId={`dialog-subtitle-container-${uniqueId}`} {...{ className }} style={style}>
       {children}
     </m.div>
   );
@@ -280,11 +276,10 @@ function DialogDescription({
       key={`dialog-description-${uniqueId}`}
       layoutId={disableLayoutAnimation ? undefined : `dialog-description-content-${uniqueId}`}
       variants={variants}
-      className={className}
       initial="initial"
       animate="animate"
       exit="exit"
-      id={`dialog-description-${uniqueId}`}
+      {...{ className, id: `dialog-description-${uniqueId}` }}
     >
       {children}
     </m.div>
@@ -301,15 +296,7 @@ type DialogImageProps = {
 function DialogImage({ src, alt, className, style }: DialogImageProps) {
   const { uniqueId } = useDialog();
 
-  return (
-    <m.img
-      src={src}
-      alt={alt}
-      className={cn(className)}
-      layoutId={`dialog-img-${uniqueId}`}
-      style={style}
-    />
-  );
+  return <m.img {...{ src, alt, className }} layoutId={`dialog-img-${uniqueId}`} style={style} />;
 }
 
 type DialogCloseProps = {
@@ -331,15 +318,17 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
 
   return (
     <m.button
-      onClick={handleClose}
-      type="button"
       aria-label="Close dialog"
       key={`dialog-close-${uniqueId}`}
-      className={cn("absolute right-6 top-6", className)}
       initial="initial"
       animate="animate"
       exit="exit"
       variants={variants}
+      {...{
+        onClick: handleClose,
+        type: "button",
+        className: cn("absolute right-6 top-6", className),
+      }}
     >
       {children || <span className="i-ph-x block" />}
     </m.button>

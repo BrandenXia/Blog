@@ -51,11 +51,11 @@ const PostList = ({ initialPosts, filter }: { initialPosts: Post[]; filter: Filt
             {activeId === post.slug && (
               <m.div
                 layoutId="posts-background"
-                className="absolute inset-0 -z-10 bg-primary/10 md:rounded-xl"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.3 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                {...{ className: "absolute inset-0 -z-10 bg-primary/10 md:rounded-xl" }}
               />
             )}
           </div>

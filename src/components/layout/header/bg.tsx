@@ -26,7 +26,10 @@ const Bg: JSXWrapper = ({ children }) => {
           willChange: "background-color, border-color",
         } as CSSProperties
       }
-      className="size-full transform-gpu border-b border-b-neutral-content bg-base-100 backdrop-blur-md backdrop-saturate-[180%] [backface-visibility:hidden] dark:border-b-0 dark:backdrop-saturate-100"
+      {...{
+        className:
+          "size-full transform-gpu border-b border-b-neutral-content bg-base-100 backdrop-blur-md backdrop-saturate-[180%] [backface-visibility:hidden] dark:border-b-0 dark:backdrop-saturate-100",
+      }}
     >
       {children}
     </m.div>

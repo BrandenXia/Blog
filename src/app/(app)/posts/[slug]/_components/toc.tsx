@@ -79,7 +79,7 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
               href={`#${item.id}`}
             >
               {active === item.id && (
-                <m.span layoutId="active-toc" className="mr-2 h-4 w-0.5 bg-primary" />
+                <m.span layoutId="active-toc" {...{ className: "mr-2 h-4 w-0.5 bg-primary" }} />
               )}
               <m.span layout>{item.title}</m.span>
             </a>

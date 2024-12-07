@@ -4,7 +4,7 @@ import { m, useInView } from "framer-motion";
 import { useRef } from "react";
 
 import type { Transition, UseInViewOptions, Variant } from "framer-motion";
-import type { ReactNode } from "react";
+import type { ReactNode, RefObject } from "react";
 
 interface InViewProps {
   children: ReactNode;
@@ -22,8 +22,8 @@ const defaultVariants = {
 };
 
 const InView = ({ children, variants = defaultVariants, transition, viewOptions }: InViewProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, viewOptions);
+  const ref = useRef<Element>(null);
+  const isInView = useInView(ref as RefObject<Element>, viewOptions);
 
   return (
     <m.div

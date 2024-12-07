@@ -19,7 +19,8 @@ const generateStaticParams = async () => {
   }));
 };
 
-const Page = async ({ searchParams }: { searchParams: SearchParams }) => {
+const Page = async (props: { searchParams: Promise<SearchParams> }) => {
+  const searchParams = await props.searchParams;
   const filter = {
     category: searchParams.category,
     tags: typeof searchParams.tags === "string" ? [searchParams.tags] : searchParams.tags,

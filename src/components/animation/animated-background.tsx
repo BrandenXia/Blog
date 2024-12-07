@@ -69,7 +69,7 @@ const AnimatedBackground = ({
           {activeId === id && (
             <m.div
               layoutId={`background-${uniqueId}`}
-              className={cn("absolute inset-0", className)}
+              {...{ className: cn("absolute inset-0", className) }}
               transition={{
                 type: "spring",
                 bounce: 0.2,

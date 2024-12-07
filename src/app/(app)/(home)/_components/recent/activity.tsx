@@ -14,7 +14,7 @@ const Activity = ({ title, children }: { title: string; children?: ReactNode }) 
         filter: "blur(0px)",
       },
     }}
-    className="flex flex-col space-y-8"
+    {...{ className: "flex flex-col space-y-8" }}
   >
     <h3 className="text-xl font-medium">{title}</h3>
     <div className="overflow-auto">{children}</div>

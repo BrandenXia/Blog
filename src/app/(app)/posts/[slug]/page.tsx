@@ -19,7 +19,8 @@ const generateStaticParams = async () => {
   return posts.map(({ slug }) => ({ params: { slug } }));
 };
 
-const generateMetadata = async ({ params: { slug } }: { params: Params }) => {
+const generateMetadata = async ({ params }: { params: Promise<Params> }) => {
+  const { slug } = await params;
   const metadata = await getPostMetadata(slug);
   if (!metadata) return {};
 
@@ -29,7 +30,9 @@ const generateMetadata = async ({ params: { slug } }: { params: Params }) => {
   } satisfies Metadata;
 };
 
-const Page = async ({ params: { slug } }: { params: Params }) => {
+const Page = async ({ params }: { params: Promise<Params> }) => {
+  const { slug } = await params;
+
   const metadata = await getPostMetadata(slug);
   if (!metadata) return notFound();
   const file = await getFileFromSlug(slug);
