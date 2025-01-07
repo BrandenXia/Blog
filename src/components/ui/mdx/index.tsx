@@ -11,9 +11,9 @@ import type { MDXComponents } from "mdx/types";
 const headingStyle =
   "relative before:absolute before:-left-8 before:opacity-30 hover:before:content-['#'] pt-5";
 
-const h1: ElementLike<"h1"> = ({ children, id, ...props }) => (
+const h1: ElementLike<"h1"> = ({ children, ...props }) => (
   <h1 {...props} className={`text-3xl font-bold ${headingStyle}`}>
-    <Link href={`#${id}`}>{children}</Link>
+    <Link href={`#${children}`}>{children}</Link>
   </h1>
 );
 const h2: ElementLike<"h2"> = ({ children, ...props }) => (
