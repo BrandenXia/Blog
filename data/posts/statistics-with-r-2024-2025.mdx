@@ -1,0 +1,635 @@
+export const metadata = {
+  title: "Statistics with R 2024-2025",
+  date: "2024-9-6",
+  category: "mathematics",
+  tags: ["school", "notes"],
+};
+
+# Unit 1: Univariate Data
+
+## Definitions
+
+### Data
+
+facts or measurements that are collect, analyze, and interpret —— raw material of statistical analysis can be quantitative and qualitative
+
+- **Cross-Sectional** - collected at the same time
+- **Longitudinal** - time-series collected over several time periods
+
+**Data Set** - all the data, across observations and variables
+
+### Variable
+
+may assume different values
+
+- **Discrete** - can be counted —— takes on integer values
+- **Continuous** - if interval is between a and b, variable can take any value in between
+
+**Constant** - remains the same
+
+### Elements
+
+an element is a unit of data, which is represented as a a set of attributes or measurements  —— entities on which data are collected
+
+**Observation** - set of values for the variables for an element set of measurements for a single data entity
+
+### Population
+
+all entities of interest in an investigative study
+
+**Population parameters** - characteristics or quantities of the population
+
+**Probability** - when we draw a sample for a population with known parameters
+
+### Measurement of Variables
+
+- **Nominal Level** - sometimes called “categorical”
+- **Ordinal Level** - order is meaningful
+- **Interval Level** - interval between the values is fixed
+- **Ratio Level** - zero has meaning
+
+Sample - subset of the population
+
+Sample Statistics - characteristics or qualities of the sample
+
+### Statistics
+
+- **Descriptive** - describe data that have been collected
+- **Inferential** - use data that have been collected to generalize or make inference based on it
+
+Univariate distributions - explore how the collection of values for each variable is distributed across an array of possible values
+
+use tables and graphs to capture the information
+
+## Distributions
+
+- axes
+- step size
+- shape
+- range / spread
+- center
+- unusual / gaps and outliers
+
+### Normal Distribution
+
+- symmetry
+- median = mean
+- bell shape
+
+### Center
+
+- Normal Distribution
+    - $\Mu$ = population mean = $\sum x_i / N$
+    - $\bar{x}$ = sample mean = $\sum x_i / n$
+- Skewed Data
+    - Median  / exact middle / 50% percentile / middle quartile
+
+### Unusual
+
+- Normal Distribution
+    - Gap
+    - **Outliers** - 3 standard deviations away from the mean - 68% / 95% / 99%
+- Skewed Data
+    - **Outliers** - $Q_{75} + 1.5 \times IQR$ and $Q_{25} - 1.5 \times IQR$
+
+### Spread
+
+- Normal Distribution
+
+    $$
+    \sigma=\sqrt{\frac{\sum(x_i-M)^2}{N}}
+    $$
+
+    $$
+    s=\sqrt{\frac{\sum(x_i-M)^2}{n-1}}
+    $$
+
+    $$
+    range = max - min
+    $$
+
+- Skew Data
+    - **IQR** - difference between the third and first quartile = $Q_{75}-Q_{25}$
+
+### Shape
+
+- normal
+- uniform
+- skew
+    - less on left = negative skew / left skew
+    - less on right = positive skew / right skew
+
+### Percentile
+
+**percentile** - way of measuring relative position within a data set
+
+The raw score where a certain percentage of score fell below that number
+
+**percentile rank** - relative position within a given dataset
+
+$Rank = \dfrac{\text{percentile}}{100} * (\text{number of items} +1)$
+
+### Modal
+
+**unimodal** - have one mode
+
+**symmetric unimodal** - mean = median = mode
+
+**bimodal** - have two mode / peak
+
+### Non-skewed normal-like
+
+**center** - mean
+
+**spread** - standard deviation - on average how far the data is from the mean
+
+median, IQR - **Resistant Statistics**
+
+mean, standard deviation - **Non-Resistant Statistics**
+
+spread ≈ variability ≈ dispersion ≈ heterogeneity ≈ unpredictability
+
+range ≈ IQR ≈ standard deviation ≈ variance
+
+### Skewness
+
+$$
+Skewness=\frac{\sum(x_i-\bar x)^3/N}{(\sqrt{\frac{\sum(x_i-M)^2}{n-1}})^3}=\frac{\sum(x_i-\bar x)^3/N}{(\text{standard deviation})^3}
+$$
+
+$$
+Standard\space Error\space Skewness=\sqrt{\frac{6N(N-1)}{(N-2)(N+1)(N+3)}}
+$$
+
+$$
+Skew\space Ratio=\frac{\text{Skewness}}{\text{Standard Error Skewness}}
+$$
+
+- When a distribution is positively skewed, the skewness is positive.
+- When a distribution is negatively skewed, the skewness is negative.
+- When a distribution symmetric, the skewness is 0.
+- When you have 2 or more distributions and you want to compare skewness, you use skewness ratio.
+- By convention when the skewness ratio exceed 2 we consider the distribution highly skewed.
+
+## Transformations
+
+### Linear Transformation
+
+$$
+X_{new}=k X_{old}+C\space \ \ \textrm{where} \ \ \textrm{k and C are constants} \ and \ k\neq 0
+$$
+
+**Center**
+
+$$
+Range_{new} = |k|\space Range_{old}
+$$
+
+$$
+\bar X_{new} = k \bar X_{old} + C
+$$
+
+$$
+X_{new (median)} = k X_{old (median)} + C
+$$
+
+**Spread**
+
+$$
+IQR_{new} = |k|\space IQR_{old}
+$$
+
+$$
+Sd_{new} = |k|\space Sd_{old}
+$$
+
+$$
+Variance_{new} = k^2\space Variance_{old}
+$$
+
+**Shape**
+
+$$
+Skew_{new} = \frac{k}{|k|} Skew_{old}
+$$
+
+$$
+Skew.ratio_{new} = \frac{k}{|k|} Skew.ratio_{old}
+$$
+
+### Z-score
+
+$$
+Z-Score_{i}=\frac{x_i-\bar x}{sd}
+$$
+
+### Nonlinear Transformation
+
+- retains the order
+- changes the relative distances between the values in the distribution, and, in doing so, impacts spread and shape
+
+# Unit 2: Bivariate Data
+
+### Bivariate Data
+
+- two variables
+- usually comparing at least interval type data
+- does one variable relate to another, if so, how?
+    - shape: linear / non-linear
+    - direction: postiive, negative
+    - strength: $r = \frac{\sum z_x\times z_y}{N-1}$
+- correlation $\neq$ causation
+
+1. obtain data - 2 variables (above nominal)
+2. scatterplot
+3. scale your data, fit a regression line
+4. look at correlation
+5. describe shape, direction, and strength
+
+### Correlation Coefficient
+
+$$
+-1\leq r\leq 1
+$$
+
+- $\geq0.7$ - strong
+- $[0.4,0.7)$ - moderate
+- $<0.4$ - weak
+
+### Linear Regression
+
+line of best fit is obtained by minimizing the square of deviations to all points on the scatter plot
+
+$$
+\text{regression line}\equiv \text{prediction line}
+$$
+
+$$
+D=\sqrt{\frac{\sum d_i^2}{N}} \ \ \textrm{where} \ \  d_i=y_i - \hat y(i)
+$$
+
+deviation also called residual
+
+$$
+\hat y = ax+b \ \ \textrm{where} \ \ a=r\frac{s_y}{s_x} \ \textrm{and} \ b=\bar y - a \bar x
+$$
+
+### $r^2$ Interpretation
+
+$r^2=p\%$ means that the independent variable accounts for $p\%$ of the change in dependent variable
+
+# Unit 3: Probability
+
+### Definitions
+
+**simple experiment** - any action (flipping a coin, choosing a card) that leads to one of several possible outcomes
+
+**events** - observable outcomes
+
+$$
+P(E)=\frac{\text{number of outcomes that satisfy condition}}{\text{total number of outcomes}}
+$$
+
+If we only have two outcomes that are mutually exclusive, they are called **complements**.
+
+$$
+\textstyle P(\bigcup E_i)=\sum P(E_i) \ \ \text{if events have no shared symbol}
+$$
+
+$$
+\textstyle P(\bigcup E_i)=\sum P(E_i) - P(\bigcap E_i)
+$$
+
+Suppose $E_i$ are independent of each other
+
+$$
+\textstyle P(\bigcap E_i)=\prod P(E_i)
+$$
+
+### Conditional Probability
+
+- two events not independent of each other
+- determining probability of an event happening given that another has happened
+
+$$
+P(E_1|E_2)=\frac{P(E_1 \cap E_2)}{P(E_2)}
+$$
+
+### The Law of Total Probability
+
+$$
+P(E_1)=P(E_1|E_2) \times P(E_2)+P(E_1|E_2^c) \times P(E_2^c)
+$$
+
+### Bayes’ Theorem
+
+$$
+P(E_1|E_2)=\frac{P(E_2|E_1) \times P(E_1)}{P(E_2)}
+$$
+
+### Binomial Distribution
+
+**B** - **binary**
+
+**I** - **independent**
+
+**N** - fixed **number** of trials
+
+**S** - probability success for each trial remains the **same**
+
+$$
+_nC_k = {n \choose k} = \frac{n!}{k!(n-k)!}
+$$
+
+$$
+P(x=k)={n \choose k} \times p^k \times (1-p)^{n-k}
+$$
+
+- k - number of successes
+- n - number of trials
+- p - probability of success
+
+$$
+\mu=n p \ \ \text{and} \ \ \sigma = \sqrt{n p (1-p)}
+$$
+
+### 10% Rule
+
+The 10 percent rule is used to approximate the independence of trials where sampling is taken without replacement, If the sample size is less than 10% of the population size, then the trial size can be treated as independent even if it’s not.
+
+$$
+Bin(n,p)\approx \mathcal{N}(\mu=np,\sigma=\sqrt{np(1-p)})
+$$
+
+a rule of thumb: n needs to be so large that the expected number of successes and failures are both at least 10
+
+$$
+np\geq10 \ \ and \ \ n(1-p)\geq10
+$$
+
+### Fundamental Counting Principle
+
+states that if one event can occur in $m$ ways and a second event can occur in $n$ ways for each at the occurrences of the first event then the first event and second event can occur in $m \times n$ ways
+
+### Permutation
+
+ordered sequences of objects in which each possible object occurs at most once but not all objects need to be used. The total number of permutations when selecting k objects from a total of n choice is:
+
+$$
+_nP_k = \frac{n!}{(n-k)!}
+$$
+
+### Normal Distribution
+
+$$
+\mathcal{N}(\mu, \sigma)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2} (\frac{x-\mu}{\sigma})^2}
+$$
+
+### Simple Random Sample
+
+sample is chosen from a given in such a way as to ensure that person (or thing) in a population has an equal of independent chance of being picked for a sample
+
+### Central Limit Theorem
+
+Given a population of values with no specify distribution and a sample size of $N$ that is sufficiently large, the sampling distribution of means for samples drawn from this population with replacement can be described as follows:
+
+1. Its shape is approximately normal
+2. Its mean $\mu_{\bar x}=\mu$
+3. Its standard deviation $\ \sigma_{\bar x}=\dfrac{\sigma}{\sqrt{N}} \$ , also called the standard error
+
+Large Sample Condition:
+
+- original distribution is approximately normal
+- sample size greater than 30
+
+### Population Proportion
+
+population proportion - $P$
+
+sample proportion - $\hat p$
+
+$$
+\hat p = \frac{\text{count of successes}}{\text{number drawn}}=\frac{X}{n}
+$$
+
+### Sampling Distribution of a Sample Proportion
+
+Choose a simple random sample of size $n$ from a population of size $N$, with a proportion of $p$ successes. Then:
+
+- the mean of the sampling distribution is equal to $p$, aka. $\mu_{\hat p}=p$
+
+- standard deviation of the sampling distribution of $\hat p$, aka. $\sigma_{\hat p}=\sqrt{\dfrac{p(1-p)}{n}} $  as long as $ n \leq \dfrac{1}{10} N$
+
+- as $n$ increases the sampling distribution approaches normal as long as
+$np \geq 10 \ \text{and} \ n(1-p) \geq 10$
+
+### Sampling Distribution of $\bar x$
+
+Suppose $\bar x$ is the mean of a simple random sample of size $n$ drawn from a large population $N$ with mean $\mu$ and a standard deviation of $\sigma$. As long as $n \leq \dfrac{1}{10} N$
+
+- $\mu_{\bar x}= \mu$
+- $\sigma_{\bar x} = \dfrac{\sigma}{\sqrt{n}}$
+
+Point estimate is the statistic calculated from your sample.
+
+1. don’t expect point estimator $\bar x$ to be the mean
+2. should be part of the normal distribution
+3. $95\%$ of the data is within 2 standard deviation of the mean
+4. Whenever $\bar x$ is within 10 points of $\mu$, $\mu$ is within 10 points of $\bar x$, this happens in about $95\%$ of all samples
+
+### Definition of Confidence Interval, Margin of Error, Confidence Level
+
+A $C\%$ confidence interval gives an interval of plausible values for a parameter
+
+$$
+\text{point estimate} \pm \text{margin of error}
+$$
+
+$$
+\text{margin of error} \rightarrow \text{value based on desired confidence level}
+$$
+
+$$
+\text{Standard Error}=\frac{\sigma}{\sqrt{n}}
+$$
+
+|  | proportion | mean |
+| --- | --- | --- |
+| **population** |  |  |
+| parameter | $p$ | $\mu$ |
+| **sample** |  |  |
+| statistic | $\hat p$ | $\bar x$ |
+| standard deviation | $\sqrt{\dfrac{p(1-p)}{n}}\approx \sqrt{\dfrac{\hat p(1-\hat p)}{n}}$ | $\sigma_{\bar x}=\dfrac{\sigma}{\sqrt{n}}\approx \dfrac{s_x}{\sqrt{n}}$ |
+
+### Confidence Level
+
+The confidence level $C$ gives the overall success rate of the method for calculating the confidence interval. That is in $C\%$ of all possible samples of a particular size $n$. This method would yield an interval that captures the true parameter value.
+
+Interval yields plausible values.
+
+Generally we chose a confidence level of $90\%$. $95\%$ is most common.
+
+$$
+\begin{aligned}
+\text{confidence interval} &= \text{statistics} \pm \text{ME} \\
+&= \text{statistic} \pm (\text{critical value}) \times \text{SE}
+\end{aligned}
+$$
+
+confidence interval for $p$:
+
+$$
+\hat p \pm z^* \times \sqrt{\frac{\hat p (1-\hat p)}{n}}
+$$
+
+confidence interval for means:
+
+$$
+\bar x \pm z^* \times \frac{\sigma}{\sqrt{n}} \approx \bar x \pm t \times \frac{s_{\bar x}}{\sqrt{n}}
+$$
+
+### T Distribution
+
+- As degree of freedom increase, approaches standard normal curve
+- symmetric mean centered around normal
+- standard deviation changes
+- bell curve
+- unimodal
+- $\text{degree of freedom}=n-1$
+
+## Significance Test
+
+### Null and Alternative Hypothesis
+
+$\mathcal{H}_0$ - a claim
+
+$\mathcal{H}_a$ - alternative hypothesis, which means $\mathcal{H}_0$ is false
+
+Parameter of interest $p$ is the true proportion of successes
+
+Statistical test weigh evidence against a claim and an alternate claim
+
+- Step 1: state hypothesis, hypothesis should express suspicions we have before we see the data
+    - one sided $>$ or $<$
+    - two sided $\neq$
+
+    $$
+    \mathcal{H}_0: p = \text{value} \ \ \text{or} \ \ \mathcal{H}_a:p < (> \text{or} \neq) \ \text{value}
+    $$
+
+    $$
+    \mathcal{H}_0: \mu = \text{value} \ \ \text{or} \ \ \mathcal{H}_a:\mu < (> \text{or} \neq) \ \text{value}
+    $$
+
+- Step 2: Does the data give convincing evidence against the null?
+    - Reject the null
+    - Fail to reject the null
+
+### P-Value
+
+The probability computed assuming $\mathcal{H}_0$ is true that the statistic (such as $\hat p$ or $\bar x$) would take a value as extreme as or more extreme than the one actually observed in the direction of $\mathcal{H}_a$.
+
+Small p-values are evidence against $\mathcal{H}_0$ observed result is unlikely to occur when $\mathcal{H}_0$ is true.
+
+If the p-value is smaller than $\alpha$ we say result are statistically significant at a level of $\underline \alpha$ (significant level), we reject the $\mathcal{H}_0$ and conclude convincing evidence in favor of $\mathcal{H}_a$.
+
+Levels of $\alpha$: $0.01,0.05, 0.1$
+
+|  | $\mathcal{H}_0$ true | $\mathcal{H}_0$ false |
+| --- | --- | --- |
+| reject $\mathcal{H}_0$ | Type $\text{I}$ error $=\alpha$ | 😀 |
+| fail to reject $\mathcal{H}_0$ | 😀 | Type $\text{II}$ error $= 1-\beta$ |
+
+### Test about a population proportion (1-prop z-test)
+
+1. state what parameter of interest is
+2. check conditions
+    - random - SRS / well-designed condition
+    - independence - if not replacing $n\leq \frac{1}{10}N$
+    - normal - $np \geq 10 \ \text{and} \ n(1-p) \geq 10$
+3. perform the test
+    - test statistic:$normalcdf(\text{z-score},\text{upper/lower bound}, mean, \text{standard deviation})$
+    - p-value
+4. conclude
+    - compare p-value to $\alpha$
+    - reject or fail to reject in context
+
+### 1 sample t-test
+
+1. State parameter of interest
+2. Check conditions
+    - random - SRS / well-designed condition
+    - independent - 10% or less of N is sampling if without replacement
+    - normal - $\geq30$ / population distribution is normal
+3. Hypothesis: $\mathcal{H}_0 \ \text{and} \ \mathcal{H}_a$
+4. perform the test
+    - test statistic:
+
+    $$
+    \frac{\text{stats} - \text{parameter}}{\text{standard error}}=\frac{\bar x - \mu_0}{s_x / \sqrt{n}}=t
+    $$
+
+5. Conclusion
+
+### Power
+
+The power of a test against a specific alternative is the probability that the test will reject $\mathcal{H}_0$ at a chosen significance level $\alpha$ when the specified alternative value of the parameter is true.
+
+1. get value according to $\alpha$ through $\text{invNorm}$
+2. find position of the value in the actual distribution
+
+### Effect
+
+Effect size is a quantitative measure of the strength or magnitude of a phenomenon. It tells how large the difference is between groups or how strong the relationship is between variables independent of sample size.
+
+Cohen’s d - means
+
+$$
+d=\frac{\bar x_1 - \bar x_2}{s_p} \ \ \text{where} \ \ s_p=\sqrt{\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}
+$$
+
+$$
+d = \begin{cases}
+0.2 &\rightarrow \text{small} \\
+0.5 &\rightarrow \text{middle} \\
+0.8 &\rightarrow \text{large}
+\end{cases}
+$$
+
+Cohen’s h
+
+$$
+h=2 \arcsin{\sqrt{p_1}} - 2 \arcsin{\sqrt{p_2}}
+$$
+
+possible values: $-\pi \ \text{and} \ \pi$
+
+## Sampling Distribution of difference of two groups
+
+| Population of treatment | Parameter | statistic | sample size |
+| --- | --- | --- | --- |
+| 1 | $\mu_1$ | $\bar x_1$ | $n_1$ |
+| 2 | $\mu_2$ | $\bar x_2$ | $n_2$ |
+
+Sampling distribution of $\bar x_1 - \bar x_2$
+
+choose an SRS of size $n_1$ from a population with mean $\mu_1$ and standard deviation $\sigma_1$ and an SRS of size $n_2$ from a population with mean $\mu_2$ and standard deviation $\sigma_2$
+
+- shape - approximately normal if sample size is large enough
+- center -  $\bar x = \bar x_1 - \bar x_2 = \mu_1 - \mu_2$
+- spread - $s = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$
+
+$$
+t_{stats} = \frac{(\bar x_1 - \bar x_2) - (\mu_1-\mu_2)}{\sqrt{s_1^2 / n_1 + s_2^2 / n_2}}
+$$
+
+### Confidence Interval
+
+$$
+\text{confidence interval} = (\bar x_1 - \bar x_2) \pm t^* \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+$$
+
+### 2 samples t-test
+
+- $\mathcal{H}_0: \mu_1 - \mu_2 = 0 \ \ \text{or} \ \ \mu_1=\mu_2$
+- $\mathcal{H}_a: \mu_1 - \mu_2 > (< \text{or} \neq) \ 0 \ \ \text{or} \ \ \mu_1> (< \text{or} \neq) \ \mu_2$
