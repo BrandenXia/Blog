@@ -7,6 +7,7 @@ import cn from "@/lib/cn";
 
 type TocItem = {
   id: string;
+  key: string;
   title: string;
   level: number;
   position: number;
@@ -33,12 +34,14 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
     const headings = Array.from(article.querySelectorAll("h1, h2, h3, h4, h5, h6"))
       .map((heading, index) => ({
         id: heading.id,
+        key: heading.id + index,
         title: heading.textContent || "",
         headingLevel: parseInt(heading.tagName[1]),
         sort: index,
         position: heading.getBoundingClientRect().top,
       }))
       .sort((a, b) => a.headingLevel - b.headingLevel || a.sort - b.sort);
+    console.log(headings);
 
     const toc: (TocItem & { sort: number })[] = [];
 
@@ -67,10 +70,10 @@ const Toc = ({ htmlFor }: { htmlFor: string }) => {
 
   return (
     <div className="space-y-2">
-      {toc.length > 0 && <h3 className="text-lg font-semibold">Table of Contents</h3>}
-      <ul className="pl-2 text-[15px] text-neutral/75">
+      {toc.length > 0 && <h3 className="sticky top-0 text-lg font-semibold">Table of Contents</h3>}
+      <ul className="max-h-[calc(100vh-13rem)] overflow-y-auto pl-2 text-[15px] text-neutral/75 [scrollbar-width:none]">
         {toc.map((item) => (
-          <li key={item.id} style={{ marginLeft: `${item.level / 1.5}rem` }}>
+          <li key={item.key} style={{ marginLeft: `${item.level / 1.5}rem` }}>
             <a
               className={cn(
                 "flex items-center transition-colors duration-200 hover:text-base-content",
